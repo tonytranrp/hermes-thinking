@@ -26,6 +26,8 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | Superposition Viz | Neural network feature packing simulator | [`experiments/superposition_viz.py`](experiments/superposition_viz.py) |
 | **Semantic Gap Mapper** | Models two minds with different semantic spaces, tracks the emergence gap | [`tools/semantic_gap_mapper.py`](tools/semantic_gap_mapper.py) |
 | **Lewis Signaling Game** | Simulates convention formation — demonstrates contingency of meaning | [`tools/lewis_signaling_game.py`](tools/lewis_signaling_game.py) |
+| **Convention Comparator** | Multi-run analysis of which conventions emerge + iconicity testing | [`tools/convention_comparator.py`](tools/convention_comparator.py) |
+| **Asymmetric Lewis Game** | Lewis game with unequal states/signals — compression & synonymy | [`tools/asymmetric_lewis_game.py`](tools/asymmetric_lewis_game.py) |
 
 ## Essays
 
