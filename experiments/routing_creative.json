@@ -1,0 +1,54 @@
+{
+  "target": "creative",
+  "metric": "drift",
+  "n_evaluated": 180,
+  "top_5": [
+    {
+      "chain": "DeepSeek-V4 -> Nemotron -> Qwen-3.5",
+      "fidelity": -0.1056,
+      "drift": 3.008,
+      "convergence": -0.0485
+    },
+    {
+      "chain": "DeepSeek-V4 -> Nemotron -> Llama-4",
+      "fidelity": 0.025,
+      "drift": 2.971,
+      "convergence": -0.0198
+    },
+    {
+      "chain": "DeepSeek-V4 -> Nemotron -> Kimi-K2",
+      "fidelity": -0.091,
+      "drift": 2.9666,
+      "convergence": -0.008
+    },
+    {
+      "chain": "DeepSeek-V4 -> DeepSeek-V4 -> Nemotron",
+      "fidelity": 0.0513,
+      "drift": 2.9571,
+      "convergence": -0.0375
+    },
+    {
+      "chain": "DeepSeek-V4 -> Nemotron -> GLM-5.1",
+      "fidelity": 0.0134,
+      "drift": 2.9461,
+      "convergence": 0.0131
+    }
+  ],
+  "worst_3": [
+    {
+      "chain": "DeepSeek-V4 -> GLM-5.1 -> GLM-5.1",
+      "fidelity": 0.0553,
+      "drift": 2.3758
+    },
+    {
+      "chain": "Qwen-3.5 -> GLM-5.1 -> GLM-5.1",
+      "fidelity": 0.0016,
+      "drift": 2.3044
+    },
+    {
+      "chain": "Qwen-3.5 -> GLM-5.1 -> GLM-5.1",
+      "fidelity": -0.0026,
+      "drift": 2.3023
+    }
+  ]
+}
