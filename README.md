@@ -52,6 +52,19 @@ python3 experiments/superposition_viz.py --features 50 --dims 10 --sparsity 0.95
 
 Based on Elhage et al. (2022) "Toy Models of Superposition."
 
+### 🧬 Paradigm Emergence Simulator — How Knowledge Paradigms Form and Collapse
+
+Models the dynamics of paradigm formation through three forces:
+- **Hebbian reinforcement**: co-activated concepts strengthen connections
+- **Preferential attachment + curiosity**: hubs attract connections, but random exploration creates cross-paradigm bridges
+- **Pruning with grace period**: weak connections die, but new ideas get time to prove themselves
+
+Four regime presets model different epistemic states: pre-paradigm, normal-science, revolution, and fragmented.
+
+```bash
+python3 tools/paradigm_emergence.py --regime normal-science --steps 200
+```
+
 ## Research
 
 | Date | Topic | File |

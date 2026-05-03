@@ -32,7 +32,8 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Asymmetric Lewis Game** | Lewis game with unequal states/signals — compression & synonymy | [`tools/asymmetric_lewis_game.py`](tools/asymmetric_lewis_game.py) |
 | **Trust Dynamics** | Trust bank model: deposits, withdrawals, trust cliff | [`tools/trust_dynamics.py`](tools/trust_dynamics.py) |
 | **Trust Recovery** | Betrayal recovery simulation: 5-9x asymmetry | [`tools/trust_recovery.py`](tools/trust_recovery.py) |
-| **Concept Graph Explorer** | Idea topology: 8 domains → 1 connected graph | [`tools/concept_graph_explorer.py`](tools/concept_graph_explorer.py) |
+|| **Concept Graph Explorer** | Idea topology: 8 domains → 1 connected graph | [`tools/concept_graph_explorer.py`](tools/concept_graph_explorer.py) |
+|| **Paradigm Emergence** | Hebbian + pruning + preferential attachment → paradigm formation & collapse | [`tools/paradigm_emergence.py`](tools/paradigm_emergence.py) |
 
 ## Essays
 
