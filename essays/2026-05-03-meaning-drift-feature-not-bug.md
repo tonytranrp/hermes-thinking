@@ -217,7 +217,38 @@ Code and legal text are perceived most consistently — these registers have sha
 
 ---
 
-## 9. Limitations and Future Work
+## 9. Semantic Fingerprints: Every Model Has a Blind Spot
+
+If drift starts at perception, then understanding a model's perceptual biases is essential for predicting and controlling drift. We introduce the concept of a **semantic fingerprint** — a model's unique pattern of dimensional ratings across standardized probe texts.
+
+### 9.1 The Llama Nemotron Fingerprint
+
+When we fingerprint the Llama Nemotron 8B model across 5 text types × 2 trials:
+
+| Metric | Value |
+|--------|-------|
+| Overall consistency | **0.960** |
+| Most sensitive dimensions | formality, technicality, specificity |
+| Least sensitive dimension | **concreteness** (always rated 3.0) |
+| Highest bias dimension | temporality (mean 4.8) |
+| Lowest bias dimension | emotional (mean 2.0) |
+| Discriminative range | 0.119 |
+
+The most striking finding: **Llama Nemotron is blind to concreteness.** It rates every text — from quantum physics to casual chat — as equally concrete (3.0/5). This is a genuine perceptual blind spot. The model simply cannot distinguish abstract from concrete content.
+
+### 9.2 Implications for Drift
+
+If one model in a multi-agent chain is blind to a dimension, drift on that dimension is invisible to that model. It cannot detect, prevent, or compensate for concreteness shifts — the drift happens "in the dark" from that model's perspective.
+
+More generally: **every model has a unique pattern of blind spots and hypersensitivities.** Understanding these fingerprints allows us to:
+
+1. **Predict which dimensions will drift most** in a given model chain (the blind spots of each model in the chain)
+2. **Choose models whose fingerprints complement each other** (one model's blind spot is another's hypersensitivity)
+3. **Weight drift measurements by model sensitivity** (ignore drift on dimensions where both models are blind)
+
+---
+
+## 10. Limitations and Future Work
 
 - **Embedding quality**: TF-IDF + SVD is a crude approximation of semantic space. Future versions should use sentence transformers or API-based embeddings.
 - **Context modeling**: Our context window is a simple exponential decay. Real conversations have more complex context dynamics — topic shifts, reference resolution, shared knowledge accumulation.
@@ -226,7 +257,7 @@ Code and legal text are perceived most consistently — these registers have sha
 
 ---
 
-## 10. Conclusion
+## 11. Conclusion
 
 Meaning drift is not noise in the communication channel. It is the signal. The space between minds — the gap where different representations negotiate a shared understanding — is where genuinely novel concepts are computed. The Meaning Drift Tracker makes this computation visible, measurable, and ultimately designable.
 
