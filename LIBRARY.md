@@ -48,6 +48,9 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Drift Predictor** | Predicts final fidelity from early-hop drift patterns | [`tools/drift_predictor.py`](tools/drift_predictor.py) |
 | **Semantic Fingerprinter** | Unique perception profiles for LLMs (bias, discriminability, sensitivity) | [`tools/semantic_fingerprint.py`](tools/semantic_fingerprint.py) |
 | **Drift Budget** | How many agent hops can you afford? Exponential decay model + chain optimization | [`tools/drift_budget.py`](tools/drift_budget.py) |
+| **Drift Report** | Unified report: runs the full drift analysis suite in one command | [`tools/drift_report.py`](tools/drift_report.py) |
+| **Drift-Aware Designer** | Design patterns for drift-resilient multi-agent systems | [`tools/drift_aware_designer.py`](tools/drift_aware_designer.py) |
+| **Conversation Drift Monitor** | Real-time drift tracking in multi-agent conversations | [`tools/conversation_drift_monitor.py`](tools/conversation_drift_monitor.py) |
 
 ## Essays
 
