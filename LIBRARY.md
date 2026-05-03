@@ -47,6 +47,7 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Perception Gap Adjuster** | Separates genuine drift from model-specific perception bias | [`tools/perception_gap_adjuster.py`](tools/perception_gap_adjuster.py) |
 | **Drift Predictor** | Predicts final fidelity from early-hop drift patterns | [`tools/drift_predictor.py`](tools/drift_predictor.py) |
 | **Semantic Fingerprinter** | Unique perception profiles for LLMs (bias, discriminability, sensitivity) | [`tools/semantic_fingerprint.py`](tools/semantic_fingerprint.py) |
+| **Drift Budget** | How many agent hops can you afford? Exponential decay model + chain optimization | [`tools/drift_budget.py`](tools/drift_budget.py) |
 
 ## Essays
 

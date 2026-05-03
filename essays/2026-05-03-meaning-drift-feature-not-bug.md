@@ -273,6 +273,41 @@ More generally: **every model has a unique pattern of blind spots and hypersensi
 2. **Choose models whose fingerprints complement each other** (one model's blind spot is another's hypersensitivity)
 3. **Weight drift measurements by model sensitivity** (ignore drift on dimensions where both models are blind)
 
+### 9.5 The 3-Model Picture: DeepSeek's 6x Discriminative Advantage
+
+Adding DeepSeek-V4-Pro to the fingerprint comparison revealed a striking asymmetry:
+
+| Metric | DeepSeek-V4-Pro | Llama Nemotron 8B | GLM-5.1-FP8 |
+|--------|----------------|-------------------|-------------|
+| Consistency | 0.980 | 0.960 | unknown (reasoning model) |
+| Discriminative range | **0.710** | 0.119 | unknown |
+| Biggest blind spot | temporality | concreteness | concreteness (1.6 extreme) |
+| Hypersensitivity | technicality, emotional, certainty | temporality | certainty |
+
+**DeepSeek perceives semantic differences 6× more precisely than Llama.** Both models share nearly identical bias profiles (perception distance ~0.038), but DeepSeek's ratings spread across a much wider range — it distinguishes poetry from code, philosophy from procedure, where Llama compresses everything toward the center.
+
+This has profound implications for multi-agent systems:
+
+1. **Not all agents are equal sensors.** A DeepSeek node in a chain catches drift that a Llama node would miss entirely.
+2. **Blind spots compound.** If consecutive agents share a blind spot (all three models are blind to emotional content), drift on that dimension is invisible to the entire chain.
+3. **74% of measured drift may be perception bias, not genuine meaning shift.** Our perception gap adjuster separates the two, but the raw numbers overestimate real drift when models have different fingerprints.
+
+### 9.6 Drift Budgets: How Many Hops Can You Afford?
+
+Not all chains can be infinite. The **drift budget** formalizes the question: given a minimum acceptable fidelity, how many agent hops can you make?
+
+Using exponential decay (fidelity = (1 - drift_rate)^n):
+
+| Drift regime | Per-hop drift | Max hops (fidelity ≥ 0.70) | Practical meaning |
+|-------------|--------------|---------------------------|-------------------|
+| LLM dimension rating | 0.068 | **5** | Most generous — careful models |
+| Default (empirical average) | 0.15 | **2** | Typical multi-agent pipeline |
+| TF-IDF text mode | 0.781 | **0** | Catastrophic — too coarse |
+
+The "drift tax" (fidelity cost per hop) is like a transaction fee: every handoff between agents costs meaning. With a 15% tax, a 3-model chain retains only 61% fidelity. With the LLM dimension approach (6.8% tax), you can string 5 models together and still be at 70% fidelity.
+
+**The practical rule: design your chain for the lowest drift tax you can measure.** The LLM dimension rating approach isn't just more accurate — it *enables* longer chains by measuring drift more precisely.
+
 ---
 
 ## 10. Limitations and Future Work
