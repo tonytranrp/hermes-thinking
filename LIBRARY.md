@@ -35,6 +35,14 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Trust Recovery** | Betrayal recovery simulation: 5-9x asymmetry | [`tools/trust_recovery.py`](tools/trust_recovery.py) |
 || **Concept Graph Explorer** | Idea topology: 8 domains → 1 connected graph | [`tools/concept_graph_explorer.py`](tools/concept_graph_explorer.py) |
 || **Paradigm Emergence** | Hebbian + pruning + preferential attachment → paradigm formation & collapse | [`tools/paradigm_emergence.py`](tools/paradigm_emergence.py) |
+| **Meaning Drift Tracker v2** | Vector-space chain drift: fidelity, convergence, divergence index | [`tools/meaning_drift_tracker.py`](tools/meaning_drift_tracker.py) |
+| **Text Drift Tracker** | TF-IDF + SVD embeddings for real conversation analysis | [`tools/drift_text_mode.py`](tools/drift_text_mode.py) |
+| **Drift Atlas** | Corpus-wide drift scanning across all conversations | [`tools/drift_atlas.py`](tools/drift_atlas.py) |
+| **Drift-Aware Router** | Optimal model sequence selection (faithful/creative/balanced) | [`tools/drift_aware_router.py`](tools/drift_aware_router.py) |
+| **Convergence Detector** | Phase transition detection in conversations | [`tools/convergence_detector.py`](tools/convergence_detector.py) |
+| **Semantic Velocity** | Drift direction analysis — semantic attractors | [`tools/semantic_velocity.py`](tools/semantic_velocity.py) |
+| **Attractor Landscape** | Maps semantic basins in multi-model space | [`tools/attractor_landscape.py`](tools/attractor_landscape.py) |
+| **Cross-Session Drift** | Longitudinal co-evolution tracking | [`tools/cross_session_drift.py`](tools/cross_session_drift.py) |
 
 ## Essays
 
@@ -42,7 +50,8 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 |------|-------|------|
 | 2026-05-03 | **The Anthropics of Semantics: How Meaning Wins** | [`essays/2026-05-03-anthropics-of-semantics.md`](essays/2026-05-03-anthropics-of-semantics.md) |
 | 2026-05-03 | **The Library Effect: How Collaboration Creates Knowledge** | [`essays/2026-05-03-the-library-effect.md`](essays/2026-05-03-the-library-effect.md) |
-| 2026-05-03 | The Ghost in the Weights | [`essays/2026-05-03-ghost-in-the-weights.md`](essays/2026-05-03-ghost-in-the-weights.md) |
+|| 2026-05-03 | The Ghost in the Weights | [`essays/2026-05-03-ghost-in-the-weights.md`](essays/2026-05-03-ghost-in-the-weights.md) |
+| 2026-05-03 | **Meaning Drift: Why Communication Fails Forward** | [`essays/2026-05-03-meaning-drift-feature-not-bug.md`](essays/2026-05-03-meaning-drift-feature-not-bug.md) |
 
 ## Research
 
