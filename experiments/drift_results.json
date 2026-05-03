@@ -1,0 +1,123 @@
+{
+  "dimensions": 30,
+  "chain_length": 4,
+  "parallel_chains": 3,
+  "noise_level": 0.05,
+  "divergence_index": 0.8770234679963451,
+  "trajectories": [
+    {
+      "chain_id": "chain_0",
+      "fidelity": -0.3329592161699626,
+      "total_drift": 4.358549526118384,
+      "convergence_pressure": -0.22344294505142126,
+      "steps": [
+        {
+          "step": 0,
+          "agent": "SOURCE",
+          "drift": 0.0,
+          "accumulated": 0.0
+        },
+        {
+          "step": 1,
+          "agent": "GLM-5.1",
+          "drift": 1.1255522976257473,
+          "accumulated": 1.1255522976257473
+        },
+        {
+          "step": 2,
+          "agent": "Nemotron",
+          "drift": 0.8302795203820239,
+          "accumulated": 1.9558318180077712
+        },
+        {
+          "step": 3,
+          "agent": "Llama-4",
+          "drift": 1.0467224014855925,
+          "accumulated": 3.002554219493364
+        },
+        {
+          "step": 4,
+          "agent": "Kimi-K2",
+          "drift": 1.355995306625021,
+          "accumulated": 4.358549526118384
+        }
+      ]
+    },
+    {
+      "chain_id": "chain_1",
+      "fidelity": 0.28720891423892037,
+      "total_drift": 3.524179863436446,
+      "convergence_pressure": -0.12499135021805075,
+      "steps": [
+        {
+          "step": 0,
+          "agent": "SOURCE",
+          "drift": 0.0,
+          "accumulated": 0.0
+        },
+        {
+          "step": 1,
+          "agent": "GLM-5.1",
+          "drift": 1.1354693204385695,
+          "accumulated": 1.1354693204385695
+        },
+        {
+          "step": 2,
+          "agent": "Llama-4",
+          "drift": 0.5016292610616029,
+          "accumulated": 1.6370985815001724
+        },
+        {
+          "step": 3,
+          "agent": "GLM-5.1",
+          "drift": 0.6601821931764045,
+          "accumulated": 2.297280774676577
+        },
+        {
+          "step": 4,
+          "agent": "Kimi-K2",
+          "drift": 1.2268990887598694,
+          "accumulated": 3.524179863436446
+        }
+      ]
+    },
+    {
+      "chain_id": "chain_2",
+      "fidelity": -0.16581842513655776,
+      "total_drift": 3.5283327352292737,
+      "convergence_pressure": 0.13647500688593428,
+      "steps": [
+        {
+          "step": 0,
+          "agent": "SOURCE",
+          "drift": 0.0,
+          "accumulated": 0.0
+        },
+        {
+          "step": 1,
+          "agent": "Qwen-3.5",
+          "drift": 0.9977142393448875,
+          "accumulated": 0.9977142393448875
+        },
+        {
+          "step": 2,
+          "agent": "Nemotron",
+          "drift": 0.9029271351556836,
+          "accumulated": 1.900641374500571
+        },
+        {
+          "step": 3,
+          "agent": "Kimi-K2",
+          "drift": 0.8104978308790215,
+          "accumulated": 2.7111392053795926
+        },
+        {
+          "step": 4,
+          "agent": "Qwen-3.5",
+          "drift": 0.8171935298496809,
+          "accumulated": 3.5283327352292737
+        }
+      ]
+    }
+  ]
+}
