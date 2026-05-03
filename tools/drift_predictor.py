@@ -17,7 +17,24 @@ import math, json
 from pathlib import Path
 
 class DriftPredictor:
-    """Predicts final chain fidelity from early-hop drift patterns."""
+    """Predicts final chain fidelity from early-hop drift patterns.
+    
+    Supports three decay models:
+      - Exponential: drift(t) = A * exp(-λ*t) + C  (converging/diverging)
+      - Logistic:    drift(t) = L / (1 + exp(-k*(t-t0)))  (S-curve)
+      - Power-law:   drift(t) = A * t^(-α) + C  (long-tail decay)
+    
+    Model selection via AIC (Akaike Information Criterion).
+    """
+    
+    def _aic(self, residuals, n_params, n_points):
+        """Compute AIC for model comparison."""
+        if n_points <= n_params:
+            return float('inf')
+        sse = sum(r**2 for r in residuals)
+        if sse <= 0:
+            return -float('inf')
+        return n_params * 2 + n_points * math.log(sse / n_points)
     
     def fit_exponential(self, drifts):
         """Fit exponential model to drift sequence."""
@@ -48,10 +65,122 @@ class DriftPredictor:
         drift_type = "converging" if lam > 0 else "diverging"
         C = max(0, increments[-1] - A * math.exp(-lam * len(increments))) if len(increments) > 0 else 0
         
-        return {"A": A, "lambda": lam, "C": C, "type": drift_type}
+        # Compute residuals for AIC
+        residuals = []
+        for i, inc in enumerate(increments):
+            pred = A * math.exp(-lam * i) + C
+            residuals.append(inc - pred)
+        
+        return {"A": A, "lambda": lam, "C": C, "type": drift_type, 
+                "residuals": residuals, "n_params": 3}
+    
+    def fit_logistic(self, drifts):
+        """Fit logistic (S-curve) model to drift sequence.
+        
+        drift(t) = L / (1 + exp(-k*(t - t0)))
+        Uses simple grid search over t0, then least-squares for L and k.
+        """
+        if len(drifts) < 4:
+            return None
+        
+        n = len(drifts)
+        best_aic = float('inf')
+        best_params = None
+        
+        # Grid search over t0
+        for t0_frac in [i/10 for i in range(-5, 16)]:
+            t0 = t0_frac * n
+            # Transform: log(drift / (L - drift)) = k*(t - t0)
+            # Pick L slightly above max drift
+            L = max(drifts) * 1.1 + 0.01
+            
+            valid = []
+            for t, d in enumerate(drifts):
+                ratio = d / (L - d)
+                if ratio > 0 and L - d > 0.001:
+                    valid.append((t, math.log(max(ratio, 1e-10))))
+            
+            if len(valid) < 2:
+                continue
+            
+            sum_x = sum(v[0] for v in valid)
+            sum_y = sum(v[1] for v in valid)
+            sum_xy = sum(v[0] * v[1] for v in valid)
+            sum_x2 = sum(v[0] ** 2 for v in valid)
+            nn = len(valid)
+            
+            denom = nn * sum_x2 - sum_x ** 2
+            if abs(denom) < 1e-10:
+                continue
+            
+            k = (nn * sum_xy - sum_x * sum_y) / denom
+            intercept = (sum_y - k * sum_x) / nn
+            
+            # Compute residuals
+            residuals = []
+            for t, d in enumerate(drifts):
+                pred = L / (1 + math.exp(-(k * (t - t0))))
+                residuals.append(d - pred)
+            
+            aic = self._aic(residuals, 4, n)  # L, k, t0, intercept
+            if aic < best_aic:
+                best_aic = aic
+                best_params = {"L": L, "k": k, "t0": t0, "intercept": intercept,
+                              "residuals": residuals, "n_params": 4, "type": "logistic"}
+        
+        return best_params
+    
+    def fit_power_law(self, drifts):
+        """Fit power-law model: drift(t) = A * t^(-alpha) + C.
+        
+        For converging chains: alpha > 0 (drift decreases)
+        For diverging chains: alpha < 0 (drift increases)
+        """
+        if len(drifts) < 3:
+            return None
+        
+        # Use log-log regression on increments
+        increments = [drifts[i] - drifts[i-1] for i in range(1, len(drifts))]
+        valid = [(i+1, abs(inc)) for i, inc in enumerate(increments) if abs(inc) > 0.001]
+        
+        if len(valid) < 2:
+            return None
+        
+        log_t = [math.log(v[0]) for v in valid]
+        log_inc = [math.log(v[1]) for v in valid]
+        
+        n = len(valid)
+        sum_x = sum(log_t)
+        sum_y = sum(log_inc)
+        sum_xy = sum(x * y for x, y in zip(log_t, log_inc))
+        sum_x2 = sum(x**2 for x in log_t)
+        
+        denom = n * sum_x2 - sum_x ** 2
+        if abs(denom) < 1e-10:
+            return None
+        
+        alpha = -(n * sum_xy - sum_x * sum_y) / denom
+        log_A = (sum_y + alpha * sum_x) / n
+        A = math.exp(log_A)
+        C = max(0, drifts[-1] - A * (len(drifts) ** (-alpha))) if alpha > 0 else 0
+        
+        # Compute residuals
+        residuals = []
+        for t, d in enumerate(drifts):
+            if t == 0:
+                continue
+            pred = A * (t ** (-alpha)) + C if alpha > 0 else A * (t ** (-alpha))
+            residuals.append(d - pred)
+        
+        return {"A": A, "alpha": -alpha, "C": C, 
+                "residuals": residuals, "n_params": 3, "type": "power_law"}
     
     def predict(self, similarities, total_steps=None):
-        """Predict final fidelity from observed similarities so far."""
+        """Predict final fidelity from observed similarities so far.
+        
+        Fits exponential, logistic, and power-law models, selects the best
+        via AIC, and uses it for prediction.
+        """
         if len(similarities) < 3:
             return {
                 "predicted_fidelity": similarities[-1] if similarities else 1.0,
@@ -61,9 +190,24 @@ class DriftPredictor:
             }
         
         drifts = [1.0 - s for s in similarities]
-        model = self.fit_exponential(drifts)
-        if model is None:
+        
+        # Fit all three models
+        models_fitted = {}
+        for name, fit_fn in [("exponential", self.fit_exponential), 
+                              ("logistic", self.fit_logistic),
+                              ("power_law", self.fit_power_law)]:
+            m = fit_fn(drifts)
+            if m and "residuals" in m:
+                aic = self._aic(m["residuals"], m["n_params"], len(drifts))
+                m["aic"] = aic
+                models_fitted[name] = m
+        
+        # Select best model by AIC
+        if not models_fitted:
             return {"predicted_fidelity": similarities[-1], "trajectory": "unknown", "confidence": 0.0}
+        
+        best_name = min(models_fitted, key=lambda k: models_fitted[k].get("aic", float('inf')))
+        model = models_fitted[best_name]
         
         current_step = len(drifts) - 1
         predict_to = total_steps if total_steps else current_step + 5
@@ -87,6 +231,18 @@ class DriftPredictor:
             # Cap at total steps (max 1.0 drift per step)
             predicted_final_drift = min(predicted_final_drift, predict_to)
             trajectory = "diverging"
+        elif model["type"] == "logistic":
+            L, k, t0 = model["L"], model["k"], model["t0"]
+            predicted_final_drift = L / (1 + math.exp(-(k * (predict_to - t0))))
+            trajectory = "saturating" if k > 0 else "accelerating"
+        elif model["type"] == "power_law":
+            A, alpha, C = model["A"], model["alpha"], model["C"]
+            if predict_to > 0:
+                predicted_final_drift = A * (predict_to ** alpha) + C
+            else:
+                predicted_final_drift = drifts[-1]
+            trajectory = "power_decay" if alpha < 0 else "power_growth"
+            predicted_final_drift = max(0, min(predicted_final_drift, predict_to))
         else:
             predicted_final_drift = drifts[-1]
             trajectory = "constant"
@@ -100,11 +256,16 @@ class DriftPredictor:
                           if (drift_increments[i] > 0) == (drift_increments[0] > 0)) / max(1, len(drift_increments) - 1)
             confidence *= (0.5 + 0.5 * monotonic)
         
+        # Model comparison info
+        model_comparison = {name: round(m.get("aic", 0), 2) for name, m in models_fitted.items()}
+        
         return {
             "predicted_fidelity": round(predicted_fidelity, 4),
             "trajectory": trajectory,
             "confidence": round(confidence, 3),
-            "model": model,
+            "best_model": best_name,
+            "model_comparison": model_comparison,
+            "model": {k: v for k, v in model.items() if k != "residuals"},
             "current_fidelity": round(similarities[-1], 4),
             "current_drift": round(drifts[-1], 4),
             "steps_observed": len(similarities),
@@ -125,8 +286,8 @@ class DriftPredictor:
         return predictions
 
 def demo():
-    """Demonstrate drift prediction."""
-    print("DRIFT PREDICTOR - DEMO")
+    """Demonstrate drift prediction with multi-model comparison."""
+    print("DRIFT PREDICTOR - DEMO (Multi-Model AIC Selection)")
     print("=" * 72)
     
     predictor = DriftPredictor()
@@ -137,6 +298,7 @@ def demo():
     print("   Observed: %s" % [round(s, 3) for s in converging])
     print("   Predicted fidelity: %.4f" % result["predicted_fidelity"])
     print("   Trajectory: %s" % result["trajectory"])
+    print("   Best model: %s (AIC comparison: %s)" % (result.get("best_model", "?"), result.get("model_comparison", {})))
     print("   Confidence: %.3f" % result["confidence"])
     
     forward = predictor.predict_chain(converging, horizon=5)
@@ -148,29 +310,39 @@ def demo():
     print("   Observed: %s" % [round(s, 3) for s in diverging])
     print("   Predicted fidelity: %.4f" % result["predicted_fidelity"])
     print("   Trajectory: %s" % result["trajectory"])
+    print("   Best model: %s (AIC: %s)" % (result.get("best_model", "?"), result.get("model_comparison", {})))
     print("   Confidence: %.3f" % result["confidence"])
     
     print("\n3. EARLY PREDICTION (3 hops, predict to 8)")
     early = [1.0, 0.88, 0.65]
     result = predictor.predict(early, total_steps=8)
     print("   Observed: %s" % [round(s, 3) for s in early])
-    print("   Predicted at step 8: %.4f | Trajectory: %s | Confidence: %.3f" % (
-        result["predicted_fidelity"], result["trajectory"], result["confidence"]))
+    print("   Predicted at step 8: %.4f | Trajectory: %s | Best model: %s" % (
+        result["predicted_fidelity"], result["trajectory"], result.get("best_model", "?")))
     
     print("\n4. TELEPHONE GAME (LLM drift tracker data)")
     telephone = [1.0, 0.948, 0.945, 1.000, 0.863, 0.832]
     result = predictor.predict(telephone, total_steps=8)
     print("   Observed: %s" % [round(s, 3) for s in telephone])
-    print("   Predicted at step 8: %.4f | Trajectory: %s" % (
-        result["predicted_fidelity"], result["trajectory"]))
+    print("   Predicted at step 8: %.4f | Trajectory: %s | Best model: %s" % (
+        result["predicted_fidelity"], result["trajectory"], result.get("best_model", "?")))
+    print("   Model comparison: %s" % result.get("model_comparison", {}))
     
     print("\n5. ACCURACY: predict from first 3 hops vs actual")
     partial = telephone[:3]
     result = predictor.predict(partial, total_steps=6)
     actual = telephone[-1]
     error = abs(result["predicted_fidelity"] - actual)
-    print("   Predicted: %.4f | Actual: %.4f | Error: %.4f" % (
-        result["predicted_fidelity"], actual, error))
+    print("   Predicted: %.4f | Actual: %.4f | Error: %.4f | Best model: %s" % (
+        result["predicted_fidelity"], actual, error, result.get("best_model", "?")))
+    
+    # Save results
+    outpath = Path(__file__).parent.parent / "experiments" / "drift_predictor_results.json"
+    with open(outpath, "w") as f:
+        json.dump({"converging": predictor.predict(converging),
+                   "diverging": predictor.predict(diverging),
+                   "telephone": predictor.predict(telephone)}, f, indent=2, default=str)
+    print("\nSaved to", outpath)
     
     print("\n" + "=" * 72)
 

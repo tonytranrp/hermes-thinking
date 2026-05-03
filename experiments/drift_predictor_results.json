@@ -1,0 +1,74 @@
+{
+  "converging": {
+    "predicted_fidelity": 0.6298,
+    "trajectory": "saturating",
+    "confidence": 0.75,
+    "best_model": "logistic",
+    "model_comparison": {
+      "exponential": -16.96,
+      "logistic": -27.95,
+      "power_law": -15.51
+    },
+    "model": {
+      "L": 0.373,
+      "k": 0.5957610552013466,
+      "t0": 1.7999999999999998,
+      "intercept": -0.6748862176755619,
+      "n_params": 4,
+      "type": "logistic",
+      "aic": -27.945224395413284
+    },
+    "current_fidelity": 0.67,
+    "current_drift": 0.33,
+    "steps_observed": 6,
+    "steps_predicted_to": 10
+  },
+  "diverging": {
+    "predicted_fidelity": 0.1327,
+    "trajectory": "saturating",
+    "confidence": 0.75,
+    "best_model": "logistic",
+    "model_comparison": {
+      "exponential": -29.22,
+      "logistic": -34.99,
+      "power_law": -7.24
+    },
+    "model": {
+      "L": 0.8680000000000001,
+      "k": 1.0099381381333552,
+      "t0": 3.0,
+      "intercept": -2.9515229953140185,
+      "n_params": 4,
+      "type": "logistic",
+      "aic": -34.9902297773842
+    },
+    "current_fidelity": 0.22,
+    "current_drift": 0.78,
+    "steps_observed": 6,
+    "steps_predicted_to": 10
+  },
+  "telephone": {
+    "predicted_fidelity": 0.8068,
+    "trajectory": "saturating",
+    "confidence": 0.656,
+    "best_model": "logistic",
+    "model_comparison": {
+      "exponential": -28.54,
+      "logistic": -31.74,
+      "power_law": -26.37
+    },
+    "model": {
+      "L": 0.19480000000000006,
+      "k": 0.7487398641138038,
+      "t0": 3.5999999999999996,
+      "intercept": -2.057351275805175,
+      "n_params": 4,
+      "type": "logistic",
+      "aic": -31.74446274220493
+    },
+    "current_fidelity": 0.832,
+    "current_drift": 0.168,
+    "steps_observed": 6,
+    "steps_predicted_to": 10
+  }
+}
