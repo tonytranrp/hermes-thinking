@@ -228,8 +228,8 @@ class DriftPredictor:
                 model["A"] * math.exp(model["lambda"] * k)
                 for k in range(1, predict_to - current_step + 1)
             )
-            # Cap at total steps (max 1.0 drift per step)
-            predicted_final_drift = min(predicted_final_drift, predict_to)
+            # Cap at 1.0 (max possible drift)
+            predicted_final_drift = min(predicted_final_drift, 1.0)
             trajectory = "diverging"
         elif model["type"] == "logistic":
             L, k, t0 = model["L"], model["k"], model["t0"]
@@ -242,7 +242,7 @@ class DriftPredictor:
             else:
                 predicted_final_drift = drifts[-1]
             trajectory = "power_decay" if alpha < 0 else "power_growth"
-            predicted_final_drift = max(0, min(predicted_final_drift, predict_to))
+            predicted_final_drift = max(0, min(predicted_final_drift, 1.0))
         else:
             predicted_final_drift = drifts[-1]
             trajectory = "constant"
