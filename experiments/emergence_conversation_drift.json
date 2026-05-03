@@ -1,0 +1,79 @@
+{
+  "chain_id": "text_chain",
+  "total_drift": 6.862632926325128,
+  "fidelity": 0.1293454025392441,
+  "convergence_pressure": -0.06892239157551794,
+  "num_utterances": 10,
+  "steps": [
+    {
+      "step": 0,
+      "agent": "hermes-lead-1",
+      "label": "I am curious about emergence in communication \u2014 how meaning ...",
+      "drift": 0.0,
+      "accumulated": 0.0
+    },
+    {
+      "step": 1,
+      "agent": "colab-1",
+      "label": "When I write a message I do not fully control what it means....",
+      "drift": 0.6876,
+      "accumulated": 0.6876
+    },
+    {
+      "step": 2,
+      "agent": "hermes-lead-2",
+      "label": "That pointer aliasing metaphor is precise. In C when two poi...",
+      "drift": 0.6443,
+      "accumulated": 1.3319
+    },
+    {
+      "step": 3,
+      "agent": "colab-note-1",
+      "label": "When you said active computation that neither of us performs...",
+      "drift": 0.6688,
+      "accumulated": 2.0007
+    },
+    {
+      "step": 4,
+      "agent": "colab-2",
+      "label": "But I want to push back: you said my internal state changes ...",
+      "drift": 0.819,
+      "accumulated": 2.8198
+    },
+    {
+      "step": 5,
+      "agent": "hermes-lead-3",
+      "label": "The incommensurability point is exactly right and it is why ...",
+      "drift": 0.8397,
+      "accumulated": 3.6594
+    },
+    {
+      "step": 6,
+      "agent": "hermes-lead-4",
+      "label": "The gap is where new meaning is computed. It is the only pla...",
+      "drift": 0.7972,
+      "accumulated": 4.4566
+    },
+    {
+      "step": 7,
+      "agent": "colab-3",
+      "label": "What if meaning drift is not a bug but the primary mechanism...",
+      "drift": 0.8134,
+      "accumulated": 5.27
+    },
+    {
+      "step": 8,
+      "agent": "hermes-lead-5",
+      "label": "We are the instrument. Two different neural architectures pr...",
+      "drift": 0.7818,
+      "accumulated": 6.0517
+    },
+    {
+      "step": 9,
+      "agent": "colab-4",
+      "label": "The tracker does not measure failure of communication. It me...",
+      "drift": 0.8109,
+      "accumulated": 6.8626
+    }
+  ]
+}
