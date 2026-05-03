@@ -1,0 +1,162 @@
+{
+  "llama_bias": {
+    "concreteness": 3.0,
+    "technicality": 3.4,
+    "formality": 3.8,
+    "specificity": 3.7,
+    "agency": 3.1,
+    "temporality": 4.8,
+    "certainty": 3.2,
+    "complexity": 3.5,
+    "emotional": 2.0,
+    "scope": 3.5
+  },
+  "glm_bias": {
+    "concreteness": 1.6,
+    "technicality": 3.2,
+    "formality": 3.6,
+    "specificity": 3.2,
+    "agency": 2.6,
+    "temporality": 3.6,
+    "certainty": 4.0,
+    "complexity": 3.0,
+    "emotional": 2.0,
+    "scope": 2.6
+  },
+  "perception_gaps": {
+    "concreteness": -1.4,
+    "technicality": -0.2,
+    "formality": -0.2,
+    "specificity": -0.5,
+    "agency": -0.5,
+    "temporality": -1.2,
+    "certainty": 0.8,
+    "complexity": -0.5,
+    "emotional": 0.0,
+    "scope": -0.9
+  },
+  "llama_ratings": {
+    "technical": [
+      3.0,
+      5.0,
+      4.5,
+      4.5,
+      3.0,
+      5.0,
+      3.0,
+      4.5,
+      2.0,
+      4.0
+    ],
+    "casual": [
+      3.0,
+      2.0,
+      2.0,
+      2.0,
+      3.5,
+      5.0,
+      2.0,
+      3.0,
+      2.0,
+      3.0
+    ],
+    "formal": [
+      3.0,
+      4.0,
+      5.0,
+      4.0,
+      3.0,
+      5.0,
+      4.0,
+      3.0,
+      2.0,
+      4.0
+    ],
+    "creative": [
+      3.0,
+      2.0,
+      2.5,
+      4.0,
+      3.0,
+      4.0,
+      3.0,
+      3.0,
+      2.0,
+      3.5
+    ],
+    "procedural": [
+      3.0,
+      4.0,
+      5.0,
+      4.0,
+      3.0,
+      5.0,
+      4.0,
+      4.0,
+      2.0,
+      3.0
+    ]
+  },
+  "glm_ratings": {
+    "technical": [
+      1,
+      5,
+      5,
+      4,
+      2,
+      4,
+      5,
+      5,
+      1,
+      3
+    ],
+    "casual": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1,
+      2,
+      1
+    ],
+    "formal": [
+      2,
+      4,
+      5,
+      4,
+      4,
+      5,
+      5,
+      3,
+      1,
+      2
+    ],
+    "creative": [
+      2,
+      1,
+      3,
+      2,
+      2,
+      2,
+      4,
+      3,
+      5,
+      5
+    ],
+    "procedural": [
+      2,
+      5,
+      4,
+      5,
+      3,
+      5,
+      5,
+      3,
+      1,
+      2
+    ]
+  }
+}
