@@ -1,0 +1,311 @@
+{
+  "method": "semantic_dimension_rating",
+  "dimensions": [
+    "concreteness",
+    "technicality",
+    "formality",
+    "specificity",
+    "agency",
+    "temporality",
+    "certainty",
+    "complexity",
+    "emotional",
+    "scope"
+  ],
+  "similarities": [
+    1.0,
+    0.9477,
+    0.9453,
+    1.0,
+    0.8631,
+    0.8321
+  ],
+  "drifts": [
+    0.0,
+    0.0523,
+    0.0547,
+    -0.0,
+    0.1369,
+    0.1679
+  ],
+  "accumulated_drift": 0.4119,
+  "fidelity": 0.8303,
+  "all_ratings": [
+    [
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      1,
+      5
+    ],
+    [
+      2,
+      3,
+      3,
+      4,
+      2,
+      4,
+      3,
+      4,
+      2,
+      3
+    ],
+    [
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    [
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    [
+      3,
+      2,
+      2,
+      3,
+      3,
+      5,
+      5,
+      5,
+      2,
+      2
+    ],
+    [
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  ],
+  "dimension_trajectories": {
+    "concreteness": [
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "technicality": [
+      5,
+      3,
+      5,
+      5,
+      2,
+      2
+    ],
+    "formality": [
+      5,
+      3,
+      5,
+      5,
+      2,
+      2
+    ],
+    "specificity": [
+      5,
+      4,
+      5,
+      5,
+      3,
+      2
+    ],
+    "agency": [
+      5,
+      2,
+      5,
+      5,
+      3,
+      2
+    ],
+    "temporality": [
+      5,
+      4,
+      5,
+      5,
+      5,
+      2
+    ],
+    "certainty": [
+      5,
+      3,
+      5,
+      5,
+      5,
+      2
+    ],
+    "complexity": [
+      5,
+      4,
+      5,
+      5,
+      5,
+      2
+    ],
+    "emotional": [
+      1,
+      2,
+      5,
+      5,
+      2,
+      2
+    ],
+    "scope": [
+      5,
+      3,
+      5,
+      5,
+      2,
+      2
+    ]
+  },
+  "total_dimension_shifts": {
+    "concreteness": 1,
+    "technicality": -3,
+    "formality": -3,
+    "specificity": -3,
+    "agency": -3,
+    "temporality": -3,
+    "certainty": -3,
+    "complexity": -3,
+    "emotional": 1,
+    "scope": -3
+  },
+  "steps": [
+    {
+      "step": 0,
+      "label": "Physicist",
+      "ratings": [
+        2,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        1,
+        5
+      ],
+      "sim_to_prev": 1.0,
+      "drift_from_prev": 0.0
+    },
+    {
+      "step": 1,
+      "label": "Translator",
+      "ratings": [
+        2,
+        3,
+        3,
+        4,
+        2,
+        4,
+        3,
+        4,
+        2,
+        3
+      ],
+      "sim_to_prev": 0.9477,
+      "drift_from_prev": 0.0523
+    },
+    {
+      "step": 2,
+      "label": "Interpreter",
+      "ratings": [
+        3,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sim_to_prev": 0.9453,
+      "drift_from_prev": 0.0547
+    },
+    {
+      "step": 3,
+      "label": "Analyst",
+      "ratings": [
+        3,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sim_to_prev": 1.0,
+      "drift_from_prev": -0.0
+    },
+    {
+      "step": 4,
+      "label": "Manager",
+      "ratings": [
+        3,
+        2,
+        2,
+        3,
+        3,
+        5,
+        5,
+        5,
+        2,
+        2
+      ],
+      "sim_to_prev": 0.8631,
+      "drift_from_prev": 0.1369
+    },
+    {
+      "step": 5,
+      "label": "Audience",
+      "ratings": [
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "sim_to_prev": 0.8321,
+      "drift_from_prev": 0.1679
+    }
+  ]
+}
