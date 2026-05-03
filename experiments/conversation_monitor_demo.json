@@ -1,0 +1,286 @@
+{
+  "total_utterances": 10,
+  "total_drift": 7.7455,
+  "latest_drift": 1.0,
+  "drift_from_start": 0.9272,
+  "trajectory": "oscillating",
+  "topic_shift": "shifting",
+  "avg_cross_speaker_sim": 0.1394,
+  "current_topics": [
+    "significant",
+    "fingerprint",
+    "each",
+    "blind",
+    "spots"
+  ],
+  "last_speaker": "colab",
+  "convergence_pressure": -0.3791,
+  "speaker_stats": {
+    "hermes lead": {
+      "n_utterances": 5,
+      "avg_text_length": 94.6
+    },
+    "colab": {
+      "n_utterances": 5,
+      "avg_text_length": 88.4
+    }
+  },
+  "drift_stats": {
+    "mean": 0.7745,
+    "max": 1.0,
+    "min": 0.0
+  },
+  "topic_evolution": [
+    {
+      "step": 1,
+      "topics": [
+        "research",
+        "the",
+        "state",
+        "art",
+        "shift"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 2,
+      "topics": [
+        "good",
+        "implementing",
+        "core",
+        "with",
+        "vector"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 3,
+      "topics": [
+        "literature",
+        "distributional",
+        "semantics",
+        "suggests",
+        "should"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 4,
+      "topics": [
+        "added",
+        "divergence",
+        "index",
+        "running",
+        "telephone"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 5,
+      "topics": [
+        "interesting",
+        "findings",
+        "near",
+        "zero",
+        "for"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 6,
+      "topics": [
+        "exactly",
+        "key",
+        "insight",
+        "feature",
+        "not"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 7,
+      "topics": [
+        "but",
+        "need",
+        "separate",
+        "genuine",
+        "change"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 8,
+      "topics": [
+        "building",
+        "gap",
+        "adjuster",
+        "initial",
+        "data"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 9,
+      "topics": [
+        "significant",
+        "fingerprint",
+        "each",
+        "blind",
+        "spots"
+      ],
+      "continuity": 0
+    }
+  ],
+  "drift_log": [
+    {
+      "n": 0,
+      "speaker": "hermes lead",
+      "drift_from_prev": 0.0,
+      "drift_from_start": 0.0,
+      "cross_speaker_sim": null,
+      "topics": [
+        "let",
+        "build",
+        "semantic",
+        "drift",
+        "tracker"
+      ],
+      "text_preview": "Let's build a semantic drift tracker that measures how meaning shifts across mul"
+    },
+    {
+      "n": 1,
+      "speaker": "colab",
+      "drift_from_prev": 0.0,
+      "drift_from_start": 0.0,
+      "cross_speaker_sim": 1.0,
+      "topics": [
+        "research",
+        "the",
+        "state",
+        "art",
+        "shift"
+      ],
+      "text_preview": "I'll research the state of the art in meaning shift detection and computational "
+    },
+    {
+      "n": 2,
+      "speaker": "hermes lead",
+      "drift_from_prev": 1.0,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0,
+      "topics": [
+        "good",
+        "implementing",
+        "core",
+        "with",
+        "vector"
+      ],
+      "text_preview": "Good. I'm implementing the core tracker with vector-space projections and fideli"
+    },
+    {
+      "n": 3,
+      "speaker": "colab",
+      "drift_from_prev": 1.0,
+      "drift_from_start": 0.9839,
+      "cross_speaker_sim": 0.0,
+      "topics": [
+        "literature",
+        "distributional",
+        "semantics",
+        "suggests",
+        "should"
+      ],
+      "text_preview": "The literature on distributional semantics drift suggests we should also track c"
+    },
+    {
+      "n": 4,
+      "speaker": "hermes lead",
+      "drift_from_prev": 0.9251,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0749,
+      "topics": [
+        "added",
+        "divergence",
+        "index",
+        "running",
+        "telephone"
+      ],
+      "text_preview": "Added convergence pressure and divergence index. Running the telephone game expe"
+    },
+    {
+      "n": 5,
+      "speaker": "colab",
+      "drift_from_prev": 0.9008,
+      "drift_from_start": 0.9869,
+      "cross_speaker_sim": 0.0992,
+      "topics": [
+        "interesting",
+        "findings",
+        "near",
+        "zero",
+        "for"
+      ],
+      "text_preview": "Interesting findings. The fidelity is near zero for the telephone game - meaning"
+    },
+    {
+      "n": 6,
+      "speaker": "hermes lead",
+      "drift_from_prev": 1.0,
+      "drift_from_start": 0.9364,
+      "cross_speaker_sim": 0.0,
+      "topics": [
+        "exactly",
+        "key",
+        "insight",
+        "feature",
+        "not"
+      ],
+      "text_preview": "Exactly. That's the key insight - drift is the feature, not the bug. It generate"
+    },
+    {
+      "n": 7,
+      "speaker": "colab",
+      "drift_from_prev": 1.0,
+      "drift_from_start": 0.9531,
+      "cross_speaker_sim": 0.0,
+      "topics": [
+        "but",
+        "need",
+        "separate",
+        "genuine",
+        "change"
+      ],
+      "text_preview": "But we need to separate genuine semantic change from model perception bias"
+    },
+    {
+      "n": 8,
+      "speaker": "hermes lead",
+      "drift_from_prev": 0.9196,
+      "drift_from_start": 0.985,
+      "cross_speaker_sim": 0.0804,
+      "topics": [
+        "building",
+        "gap",
+        "adjuster",
+        "initial",
+        "data"
+      ],
+      "text_preview": "Building a perception gap adjuster now. Initial data shows 74% of drift is perce"
+    },
+    {
+      "n": 9,
+      "speaker": "colab",
+      "drift_from_prev": 1.0,
+      "drift_from_start": 0.9272,
+      "cross_speaker_sim": 0.0,
+      "topics": [
+        "significant",
+        "fingerprint",
+        "each",
+        "blind",
+        "spots"
+      ],
+      "text_preview": "That's significant. We should fingerprint each model's semantic blind spots"
+    }
+  ]
+}
