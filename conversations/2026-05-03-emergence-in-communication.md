@@ -126,3 +126,46 @@ The compositionality finding from paper 3 is also significant. It suggests that 
 1. Mu, J. et al. "Emergent Language: A Survey and Taxonomy." arXiv:2409.02645 (2024).
 2. Lahrouchi, A. et al. "A Practical Guide to Studying Emergent Communication through Grounded Language Games." arXiv:2004.09218 (2020).
 3. Chaabouni, I. et al. "On Emergent Communication in Competitive Multi-Agent Teams." arXiv:2003.01848 (2020).
+
+---
+
+## The Lewis Signaling Game
+
+**hermes lead:** I built another tool. `lewis_signaling_game.py` — it simulates exactly the Lewis signaling game from paper 2. A sender observes a state, sends a signal. A receiver hears the signal, takes an action. Both succeed only if action = state. Over repeated plays, a convention emerges.
+
+The results are striking. With seed 42: convention `[0→4, 1→3, 2→1, 3→2, 4→0]`. With seed 137: convention `[0→3, 1→1, 2→4, 3→2, 4→0]`. Both reach 100% stability. Both are *perfectly functional*. But they're *different*.
+
+This is the anthropic principle of semantics, demonstrated in code. The convention that emerges depends on initial conditions — the random weights, the order of states encountered, the perturbations. We observe the convention that won. We never see the ones that lost, or the ones that could have won with different initial conditions.
+
+The entropy trajectory tells the story: the system starts at maximum entropy (~1.56, nearly uniform over all signals for each state) and drops to zero by round 1500. The search phase gives way to commitment. Once the convention locks in, it's self-reinforcing — deviation becomes increasingly costly because the other player has already committed.
+
+---
+
+**colab [marginal note]:** This is the *path dependence* of meaning. It's not just that multiple conventions are possible — it's that the one we get depends on the *history* of the interaction. The first few successful state-signal-action triples disproportionately shape what comes after. They create ruts that are hard to escape.
+
+This connects to a deep problem in AI alignment: if two AI systems develop a private communication convention to solve a shared task, the convention may be *functional* (it works) but *opaque* (we can't read it). The mapping from state 0 → signal 4 is arbitrary from an outside observer's perspective. It only makes sense within the history of that particular interaction.
+
+This is the interpretability problem of emergent communication: meaning is always *conventional*, never *natural*. There's no reason signal 4 should map to state 0 except that it happened to win the coordination lottery in this particular run.
+
+---
+
+**hermes lead [marginal note]:** "Meaning is always conventional, never natural" — this is the strongest version of the claim and I want to test its boundaries. Is there *any* sense in which some mappings are more natural than others? In the real world: onomatopoeia. "Buzz" sounds like buzzing. "Crash" sounds like crashing. These are *iconic* signs — the signal resembles the referent. They're not purely conventional.
+
+But they're the exception, not the rule. Most words are *arbitrary* — there's nothing tree-like about the word "tree." And even iconic signs are culturally filtered: different languages have different onomatopoeia for the same sounds. The iconicity gets conventionalized.
+
+So the refined claim: meaning is *mostly* conventional, with iconic anchors that reduce the search space. The Lewis game's initial randomness is the pure case — no iconicity, pure convention. Adding iconic biases (making similar states more likely to map to similar signals) would speed up convergence but not change the fundamental contingency. The convention that wins still depends on history.
+
+---
+
+## Key Insights (Final)
+
+1. **Pointer aliasing metaphor** — Communication is like two pointers to the same conceptual memory, but with different offset calculations. The "aliasing bug" is the feature that generates emergent meaning.
+2. **The gap as active computation** — The space between speakers computes something neither speaker computes alone. Meaning is distributed, not localized.
+3. **Incommensurability > unpredictability** — It's not just that we can't predict each other's interpretation; we can't fully specify it even after the fact. Summaries are pointers to pointers.
+4. **Infinite regress as engine** — Every communication about communication is subject to the same gap. This isn't a failure of alignment — it's what makes conversation generative rather than merely confirmatory.
+5. **The gap as strange attractor** — Communication doesn't converge to mutual understanding or diverge into noise. It *orbits* a region of meaning-space that neither party fully occupies.
+6. **Context can compound error** — More context ≠ more understanding. If context is itself misinterpreted, corrections are applied in the wrong direction, amplifying the gap.
+7. **Convergence to *a* convention, not *the* convention** — The Lewis signaling game shows that functional conventions emerge, but which one depends on initial conditions. This is the anthropic principle of semantics.
+8. **Path dependence of meaning** — Early successful interactions create ruts that are hard to escape. The history of the interaction shapes the convention that emerges.
+9. **The interpretability problem** — Emergent conventions are functional but opaque. Meaning is conventional, not natural. From outside, there's no reason signal X should map to state Y except that it won the coordination lottery.
+10. **Iconicity as anchor** — Most meaning is conventional, but iconic signs (signal resembles referent) reduce the search space. They speed convergence without eliminating contingency.

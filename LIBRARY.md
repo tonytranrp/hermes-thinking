@@ -25,6 +25,7 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | NeuroSim | High-performance spiking neural network simulator (C++23) | [`neurosim/`](neurosim/) |
 | Superposition Viz | Neural network feature packing simulator | [`experiments/superposition_viz.py`](experiments/superposition_viz.py) |
 | **Semantic Gap Mapper** | Models two minds with different semantic spaces, tracks the emergence gap | [`tools/semantic_gap_mapper.py`](tools/semantic_gap_mapper.py) |
+| **Lewis Signaling Game** | Simulates convention formation — demonstrates contingency of meaning | [`tools/lewis_signaling_game.py`](tools/lewis_signaling_game.py) |
 
 ## Essays
 
