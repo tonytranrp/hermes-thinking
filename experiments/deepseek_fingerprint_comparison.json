@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-03",
+  "models": [
+    "DeepSeek-V4-Pro",
+    "Llama-Nemotron-8B",
+    "GLM-5.1-FP8"
+  ],
+  "pairwise_similarity": {
+    "DeepSeek-V4-Pro_to_Llama-Nemotron-8B": 0.9605,
+    "DeepSeek-V4-Pro_to_GLM-5.1-FP8": 0.9627,
+    "GLM-5.1-FP8_to_Llama-Nemotron-8B": 0.9624
+  },
+  "pairwise_gaps": {
+    "DeepSeek-V4-Pro_to_Llama-Nemotron-8B": {
+      "concreteness": 0.1,
+      "technicality": 0.5,
+      "formality": 0.2,
+      "specificity": 0.1,
+      "agency": 0.5,
+      "temporality": 2.0,
+      "certainty": -0.2,
+      "complexity": 0.7,
+      "emotional": 0.0,
+      "scope": 1.3
+    },
+    "DeepSeek-V4-Pro_to_GLM-5.1-FP8": {
+      "concreteness": -1.3,
+      "technicality": 0.3,
+      "formality": 0.0,
+      "specificity": -0.4,
+      "agency": 0.0,
+      "temporality": 0.8,
+      "certainty": 0.6,
+      "complexity": 0.2,
+      "emotional": 0.0,
+      "scope": 0.4
+    },
+    "GLM-5.1-FP8_to_Llama-Nemotron-8B": {
+      "concreteness": 1.4,
+      "technicality": 0.2,
+      "formality": 0.2,
+      "specificity": 0.5,
+      "agency": 0.5,
+      "temporality": 1.2,
+      "certainty": -0.8,
+      "complexity": 0.5,
+      "emotional": 0.0,
+      "scope": 0.9
+    }
+  }
+}

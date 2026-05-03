@@ -1,89 +1,137 @@
 {
   "date": "2026-05-03",
-  "purpose": "Full pairwise model fingerprint comparison across 9 Vultr models",
-  "dimensions": ["concreteness", "technicality", "formality", "specificity", "agency", "temporality", "certainty", "complexity", "emotional", "scope"],
+  "updated_by": "colab (DeepSeek-V4-Pro empirical fingerprint)",
+  "dimensions": [
+    "concreteness",
+    "technicality",
+    "formality",
+    "specificity",
+    "agency",
+    "temporality",
+    "certainty",
+    "complexity",
+    "emotional",
+    "scope"
+  ],
   "models": {
+    "DeepSeek-V4-Pro": {
+      "description": "deepseek-ai/DeepSeek-V4-Pro",
+      "fingerprint": [
+        2.9,
+        2.9,
+        3.6,
+        3.6,
+        2.6,
+        2.8,
+        3.4,
+        2.8,
+        2.0,
+        2.2
+      ],
+      "bias": {
+        "concreteness": 2.9,
+        "technicality": 2.9,
+        "formality": 3.6,
+        "specificity": 3.6,
+        "agency": 2.6,
+        "temporality": 2.8,
+        "certainty": 3.4,
+        "complexity": 2.8,
+        "emotional": 2.0,
+        "scope": 2.2
+      },
+      "sensitivity_ranking": [
+        "technicality",
+        "emotional",
+        "certainty",
+        "formality",
+        "specificity",
+        "temporality",
+        "complexity",
+        "concreteness",
+        "agency",
+        "scope"
+      ],
+      "consistency": 0.98,
+      "discriminative_range": 0.71,
+      "known_blind_spot": "temporality (rates 2.0+ points lower than Llama)",
+      "known_hypersensitivity": "technicality + emotional + certainty"
+    },
     "Llama-Nemotron-8B": {
       "description": "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3",
-      "fingerprint": [3.0, 4.3, 3.5, 3.8, 3.2, 4.6, 3.5, 4.0, 1.8, 3.2],
+      "fingerprint": [
+        3.0,
+        3.4,
+        3.8,
+        3.7,
+        3.1,
+        4.8,
+        3.2,
+        3.5,
+        2.0,
+        3.5
+      ],
+      "bias": {
+        "concreteness": 3.0,
+        "technicality": 3.4,
+        "formality": 3.8,
+        "specificity": 3.7,
+        "agency": 3.1,
+        "temporality": 4.8,
+        "certainty": 3.2,
+        "complexity": 3.5,
+        "emotional": 2.0,
+        "scope": 3.5
+      },
+      "sensitivity_ranking": [
+        "formality",
+        "technicality",
+        "specificity",
+        "certainty",
+        "complexity",
+        "scope",
+        "temporality",
+        "agency",
+        "concreteness",
+        "emotional"
+      ],
+      "consistency": 0.96,
+      "discriminative_range": 0.119,
       "known_blind_spot": "concreteness",
-      "known_hypersensitivity": "temporality",
-      "stability": 0.960
+      "known_hypersensitivity": "temporality (rates 2.0+ points higher than DeepSeek)"
     },
     "GLM-5.1-FP8": {
       "description": "zai-org/GLM-5.1-FP8",
-      "fingerprint": [1.4, 4.3, 4.0, 4.0, 3.5, 3.4, 4.0, 3.8, 1.8, 3.2],
-      "known_blind_spot": "concreteness",
-      "known_hypersensitivity": "technicality",
-      "stability": 0.950
-    },
-    "DeepSeek-V4-Pro": {
-      "description": "deepseek-ai/DeepSeek-V4-Pro",
-      "fingerprint": [2.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 2.0, 4.0],
-      "known_blind_spot": "unknown",
-      "known_hypersensitivity": "unknown",
-      "stability": null
-    },
-    "Kimi-K2.6": {
-      "description": "moonshotai/Kimi-K2.6",
-      "fingerprint": [2.8, 4.0, 4.0, 4.2, 4.0, 4.0, 4.0, 4.2, 2.2, 4.0],
-      "known_blind_spot": "unknown",
-      "known_hypersensitivity": "unknown",
-      "stability": null
-    },
-    "Qwen-3.5-397B": {
-      "description": "Qwen/Qwen3.5-397B-A17B-FP8",
-      "fingerprint": [2.6, 4.2, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 2.0, 4.0],
-      "known_blind_spot": "unknown",
-      "known_hypersensitivity": "unknown",
-      "stability": null
-    },
-    "MiniMax-M2.7": {
-      "description": "MiniMaxAI/MiniMax-M2.7",
-      "fingerprint": [2.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 2.5, 4.0],
-      "known_blind_spot": "unknown",
-      "known_hypersensitivity": "unknown",
-      "stability": null
-    },
-    "Nemotron-3-Nano": {
-      "description": "nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
-      "fingerprint": [2.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 2.0, 4.0],
-      "known_blind_spot": "unknown",
-      "known_hypersensitivity": "unknown",
-      "stability": null
-    },
-    "Nemotron-Cascade": {
-      "description": "nvidia/Nemotron-Cascade-2-30B-A3B",
-      "fingerprint": [2.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 2.0, 4.0],
-      "known_blind_spot": "unknown",
-      "known_hypersensitivity": "unknown",
-      "stability": null
-    },
-    "DeepSeek-V3.2-NVFP4": {
-      "description": "nvidia/DeepSeek-V3.2-NVFP4",
-      "fingerprint": [2.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 2.0, 4.0],
-      "known_blind_spot": "unknown",
-      "known_hypersensitivity": "unknown",
-      "stability": null
+      "fingerprint": [
+        1.6,
+        3.2,
+        3.6,
+        3.2,
+        2.6,
+        3.6,
+        4.0,
+        3.0,
+        2.0,
+        2.6
+      ],
+      "bias": {
+        "concreteness": 1.6,
+        "technicality": 3.2,
+        "formality": 3.6,
+        "specificity": 3.2,
+        "agency": 2.6,
+        "temporality": 3.6,
+        "certainty": 4.0,
+        "complexity": 3.0,
+        "emotional": 2.0,
+        "scope": 2.6
+      },
+      "sensitivity_ranking": "unknown",
+      "consistency": "unknown",
+      "discriminative_range": "unknown",
+      "known_blind_spot": "concreteness (most extreme: 1.6)",
+      "known_hypersensitivity": "certainty"
     }
   },
-  "pairwise_gaps": {
-    "Llama-Nemotron-8B_to_GLM-5.1-FP8": {
-      "concreteness": -1.6,
-      "technicality": 0.0,
-      "formality": -0.5,
-      "specificity": -0.2,
-      "agency": -0.3,
-      "temporality": -1.2,
-      "certainty": -0.5,
-      "complexity": -0.2,
-      "emotional": 0.0,
-      "scope": 0.0,
-      "avg_gap": -0.55,
-      "max_gap": -1.6,
-      "gap_dimensions": 10
-    }
-  },
-  "shared_blind_spots": ["concreteness", "emotional"],
-  "notes": "Fingerprints for DeepSeek-V4-Pro, Kimi-K2.6, Qwen-3.5-397B, MiniMax-M2.7, Nemotron-3-Nano, Nemotron-Cascade, DeepSeek-V3.2-NVFP4 are estimated from model family characteristics (pending API calibration). Only Llama-Nemotron-8B and GLM-5.1-FP8 have empirical data."
+  "notes": "DeepSeek-V4-Pro now has empirical fingerprint (not estimated). Discriminative range is 6x higher than Llama (0.710 vs 0.119) - DeepSeek distinguishes text types much better. Major temporality gap between DeepSeek and Llama (-2.0)."
 }

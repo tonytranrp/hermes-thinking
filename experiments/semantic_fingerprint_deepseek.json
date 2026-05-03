@@ -1,0 +1,251 @@
+{
+  "model": "deepseek-ai/DeepSeek-V4-Pro",
+  "n_trials": 2,
+  "probe_ratings": {
+    "technical": {
+      "ratings": [
+        [
+          2,
+          5,
+          4,
+          4,
+          2,
+          2,
+          3,
+          4,
+          1,
+          3
+        ],
+        [
+          2,
+          5,
+          4,
+          4,
+          2,
+          2,
+          3,
+          4,
+          1,
+          3
+        ]
+      ],
+      "average": [
+        2.0,
+        5.0,
+        4.0,
+        4.0,
+        2.0,
+        2.0,
+        3.0,
+        4.0,
+        1.0,
+        3.0
+      ],
+      "consistency": 1.0
+    },
+    "casual": {
+      "ratings": [
+        [
+          1,
+          1,
+          1,
+          1,
+          3,
+          3,
+          1,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          1,
+          3,
+          3,
+          1,
+          1,
+          2,
+          1
+        ]
+      ],
+      "average": [
+        1.5,
+        1.0,
+        1.0,
+        1.0,
+        3.0,
+        3.0,
+        1.0,
+        1.0,
+        2.0,
+        1.0
+      ],
+      "consistency": 0.975
+    },
+    "formal": {
+      "ratings": [
+        [
+          4,
+          5,
+          5,
+          5,
+          2,
+          5,
+          5,
+          4,
+          1,
+          2
+        ],
+        [
+          2,
+          4,
+          5,
+          5,
+          2,
+          5,
+          5,
+          4,
+          1,
+          2
+        ]
+      ],
+      "average": [
+        3.0,
+        4.5,
+        5.0,
+        5.0,
+        2.0,
+        5.0,
+        5.0,
+        4.0,
+        1.0,
+        2.0
+      ],
+      "consistency": 0.925
+    },
+    "creative": {
+      "ratings": [
+        [
+          4,
+          1,
+          4,
+          4,
+          2,
+          1,
+          3,
+          3,
+          5,
+          3
+        ],
+        [
+          4,
+          1,
+          4,
+          4,
+          2,
+          1,
+          3,
+          3,
+          5,
+          3
+        ]
+      ],
+      "average": [
+        4.0,
+        1.0,
+        4.0,
+        4.0,
+        2.0,
+        1.0,
+        3.0,
+        3.0,
+        5.0,
+        3.0
+      ],
+      "consistency": 1.0
+    },
+    "procedural": {
+      "ratings": [
+        [
+          4,
+          3,
+          4,
+          4,
+          4,
+          3,
+          5,
+          2,
+          1,
+          2
+        ],
+        [
+          4,
+          3,
+          4,
+          4,
+          4,
+          3,
+          5,
+          2,
+          1,
+          2
+        ]
+      ],
+      "average": [
+        4.0,
+        3.0,
+        4.0,
+        4.0,
+        4.0,
+        3.0,
+        5.0,
+        2.0,
+        1.0,
+        2.0
+      ],
+      "consistency": 1.0
+    }
+  },
+  "bias": {
+    "concreteness": 2.9,
+    "technicality": 2.9,
+    "formality": 3.6,
+    "specificity": 3.6,
+    "agency": 2.6,
+    "temporality": 2.8,
+    "certainty": 3.4,
+    "complexity": 2.8,
+    "emotional": 2.0,
+    "scope": 2.2
+  },
+  "discriminability": {
+    "concreteness": 1.02,
+    "technicality": 1.69,
+    "formality": 1.36,
+    "specificity": 1.36,
+    "agency": 0.8,
+    "temporality": 1.33,
+    "certainty": 1.5,
+    "complexity": 1.17,
+    "emotional": 1.55,
+    "scope": 0.75
+  },
+  "sensitivity_ranking": [
+    "technicality",
+    "emotional",
+    "certainty",
+    "formality",
+    "specificity",
+    "temporality",
+    "complexity",
+    "concreteness",
+    "agency",
+    "scope"
+  ],
+  "overall_consistency": 0.98,
+  "discriminative_range": 0.71,
+  "min_inter_text_similarity": 0.201,
+  "max_inter_text_similarity": 0.912
+}
