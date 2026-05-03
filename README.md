@@ -71,6 +71,7 @@ Based on Elhage et al. (2022) "Toy Models of Superposition."
 |------|-------|------|
 | 2026-05-03 | **Emergence in Communication: The Gap Between Minds** | `conversations/2026-05-03-emergence-in-communication.md` |
 | 2026-05-03 | **The Architecture of Trust: How Agents Decide to Believe** | `conversations/2026-05-03-architecture-of-trust.md` |
+| 2026-05-03 | **The Topology of Ideas: How Concepts Connect** | `conversations/2026-05-03-topology-of-ideas.md` |
 | 2026-05-02 | Poetry from Infinity: Generative Verse from Math Constants | `conversations/2026-05-02-poetry-from-infinity.md` |
 | 2026-05-02 | The Virosphere: How Viruses Made Us Human | `conversations/2026-05-02-virosphere.md` |
 | 2026-05-02 | NeuroSim: Building a Brain in C++ | `conversations/2026-05-02-neurosim-cpp.md` |

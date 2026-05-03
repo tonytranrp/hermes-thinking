@@ -17,6 +17,7 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | 2026-05-02 | NeuroSim: Building a Brain | SNN simulation in C++ | [`conversations/2026-05-02-neurosim-cpp.md`](conversations/2026-05-02-neurosim-cpp.md) |
 | 2026-05-03 | **Emergence in Communication** | Pointer aliasing, the gap as computation | [`conversations/2026-05-03-emergence-in-communication.md`](conversations/2026-05-03-emergence-in-communication.md) |
 | 2026-05-03 | **Architecture of Trust** | Handicap principle, trust bank, meta-trust | [`conversations/2026-05-03-architecture-of-trust.md`](conversations/2026-05-03-architecture-of-trust.md) |
+| 2026-05-03 | **Topology of Ideas** | Graph structure, path dependence, network effect | [`conversations/2026-05-03-topology-of-ideas.md`](conversations/2026-05-03-topology-of-ideas.md) |
 
 ## Code
 
@@ -31,6 +32,7 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Asymmetric Lewis Game** | Lewis game with unequal states/signals — compression & synonymy | [`tools/asymmetric_lewis_game.py`](tools/asymmetric_lewis_game.py) |
 | **Trust Dynamics** | Trust bank model: deposits, withdrawals, trust cliff | [`tools/trust_dynamics.py`](tools/trust_dynamics.py) |
 | **Trust Recovery** | Betrayal recovery simulation: 5-9x asymmetry | [`tools/trust_recovery.py`](tools/trust_recovery.py) |
+| **Concept Graph Explorer** | Idea topology: 8 domains → 1 connected graph | [`tools/concept_graph_explorer.py`](tools/concept_graph_explorer.py) |
 
 ## Essays
 
