@@ -1,0 +1,80 @@
+{
+  "Llama-Nemotron-8B": {
+    "ratings": [
+      3,
+      5,
+      5,
+      5,
+      3,
+      5,
+      5,
+      5,
+      1,
+      3
+    ],
+    "model": "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3"
+  },
+  "GLM-5.1-FP8": {
+    "ratings": [
+      1,
+      5,
+      5,
+      5,
+      4,
+      3,
+      5,
+      5,
+      1,
+      3
+    ],
+    "model": "zai-org/GLM-5.1-FP8"
+  },
+  "Llama-Nemotron-8B_casual": {
+    "ratings": [
+      3,
+      2,
+      2,
+      2,
+      2,
+      5,
+      2,
+      2,
+      1,
+      2
+    ],
+    "model": "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3",
+    "text": "casual"
+  },
+  "GLM-5.1-FP8_casual": {
+    "ratings": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      4,
+      1,
+      1,
+      2,
+      2
+    ],
+    "model": "zai-org/GLM-5.1-FP8",
+    "text": "casual"
+  },
+  "Llama-Nemotron-8B_legal": {
+    "ratings": [
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      3,
+      1,
+      5
+    ],
+    "model": "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3",
+    "text": "legal"
+  }
+}
