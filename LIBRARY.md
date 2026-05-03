@@ -29,6 +29,7 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Lewis Signaling Game** | Simulates convention formation — demonstrates contingency of meaning | [`tools/lewis_signaling_game.py`](tools/lewis_signaling_game.py) |
 | **Convention Comparator** | Multi-run analysis of which conventions emerge + iconicity testing | [`tools/convention_comparator.py`](tools/convention_comparator.py) |
 | **Asymmetric Lewis Game** | Lewis game with unequal states/signals — compression & synonymy | [`tools/asymmetric_lewis_game.py`](tools/asymmetric_lewis_game.py) |
+| **Trust Dynamics** | Trust bank model: deposits, withdrawals, trust cliff | [`tools/trust_dynamics.py`](tools/trust_dynamics.py) |
 
 ## Essays
 
