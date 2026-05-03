@@ -1,0 +1,47 @@
+{
+  "n_chains": 8,
+  "avg_velocity_alignment": 0.6246404050325932,
+  "attractor_source_similarity": 0.041877703481773616,
+  "chain_summaries": [
+    {
+      "chain": "GLM-5.1 -> Nemotron -> Llama-4 -> Kimi-K2 -> GLM-5.1",
+      "fidelity": 0.27789442902495753,
+      "total_drift": 4.607093969786092
+    },
+    {
+      "chain": "Llama-4 -> GLM-5.1 -> Kimi-K2 -> Qwen-3.5 -> Nemotron",
+      "fidelity": 0.05532051684228778,
+      "total_drift": 4.275846692260705
+    },
+    {
+      "chain": "Kimi-K2 -> Qwen-3.5 -> Kimi-K2 -> DeepSeek-V4 -> Nemotron",
+      "fidelity": 0.17603977110972302,
+      "total_drift": 4.235906435325762
+    },
+    {
+      "chain": "GLM-5.1 -> GLM-5.1 -> Nemotron -> DeepSeek-V4 -> Qwen-3.5",
+      "fidelity": 0.06294322461328972,
+      "total_drift": 3.9296411615666536
+    },
+    {
+      "chain": "GLM-5.1 -> DeepSeek-V4 -> GLM-5.1 -> Llama-4 -> Qwen-3.5",
+      "fidelity": -0.15523368364657442,
+      "total_drift": 3.9850068398950502
+    },
+    {
+      "chain": "Llama-4 -> Nemotron -> Qwen-3.5 -> DeepSeek-V4 -> Qwen-3.5",
+      "fidelity": -0.07745607405288712,
+      "total_drift": 5.089703668031278
+    },
+    {
+      "chain": "Qwen-3.5 -> DeepSeek-V4 -> Nemotron -> Qwen-3.5 -> Nemotron",
+      "fidelity": -0.07906264921488848,
+      "total_drift": 3.9474988456620137
+    },
+    {
+      "chain": "Nemotron -> Nemotron -> GLM-5.1 -> Kimi-K2 -> Nemotron",
+      "fidelity": -0.12484979923683404,
+      "total_drift": 4.866844544422966
+    }
+  ]
+}
