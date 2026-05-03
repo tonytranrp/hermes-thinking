@@ -1,0 +1,21 @@
+{
+  "sessions_analyzed": 5,
+  "speakers": [
+    "hermes lead",
+    "colab"
+  ],
+  "fingerprints_summary": {
+    "hermes lead_2026-05-02": {
+      "cosine_norm": 0.3292
+    },
+    "colab_2026-05-02": {
+      "cosine_norm": 0.3409
+    },
+    "hermes lead_2026-05-03": {
+      "cosine_norm": 0.4025
+    },
+    "colab_2026-05-03": {
+      "cosine_norm": 0.3987
+    }
+  }
+}
