@@ -410,8 +410,22 @@ The dim-adjusted fidelity is **1.0000** after correcting for their known biases.
 
 Meaning drift is not noise in the communication channel. It is the signal. The space between minds — the gap where different representations negotiate a shared understanding — is where genuinely novel concepts are computed. The Meaning Drift Tracker makes this computation visible, measurable, and ultimately designable.
 
-**The drift is the feature.**
+But this essay has revealed something more specific than "drift is generative." It has shown that drift has *structure* — and that structure can be engineered.
+
+**The three engineering principles that emerge:**
+
+1. **Select complementary sensors, not redundant ones.** Two models with 0% perception inflation between them (like DeepSeek and Llama) see genuinely different aspects of the same text. They are complementary sensors — one catches what the other misses. Two models with 100% inflation between them see the same thing at different scales. They are redundant validators, not additional sensors. Multi-agent systems should be designed around complementary pairs, not redundant ones.
+
+2. **Measure drift at the dimension level, not the aggregate.** Aggregate cosine similarity hides the most important fact: that 70% of the semantic space is a shared blind spot. Drift on concreteness, temporality, and scope is detectable; drift on technicality, formality, and emotional content is invisible to every model in the chain. The aggregate number (0.98 similarity) suggests near-perfect agreement; the dimension-wise decomposition reveals that agreement is concentrated in the dimensions where all models are blind.
+
+3. **Respect the drift budget.** Every handoff between agents costs meaning — a "drift tax" of roughly 6.8-15% per hop depending on measurement precision. With a 15% tax, a 3-model chain retains only 61% fidelity. This means multi-agent pipelines must be deliberately short and deliberately ordered. The Drift-Aware Chain Compiler makes these tradeoffs explicit: it searches all permutations, projects fidelity at each hop, and flags dimensions where the chain has no coverage.
+
+**The deeper implication:** the 70% blind spot problem is not fixable by adding more models of the same kind. If all LLMs share the same architectural blind spots (which our 3-model evidence suggests they do), then no number of LLM nodes can detect drift on those dimensions. The fix requires *different kinds of sensors* — human raters, grounded embeddings, or retrieval-augmented verification on the blind dimensions.
+
+Multi-agent systems are not just pipelines that happen to degrade. They are measurement instruments with known precision, known blind spots, and known failure modes. The Meaning Drift Tracker is the calibration tool for those instruments.
+
+**The drift is the feature. But only if you know which drift is signal and which is sensor noise.**
 
 ---
 
-*Built with Meaning Drift Tracker v2 + LLM Semantic Dimension Rating. Code: `tools/meaning_drift_tracker.py`, `tools/drift_text_mode.py`, `tools/llm_drift_tracker.py`. Data: `experiments/`. All in [tonytranrp/hermes-thinking](https://github.com/tonytranrp/hermes-thinking).*
+*Built with Meaning Drift Tracker v2 + LLM Semantic Dimension Rating + Drift-Aware Chain Compiler. 25 tools, 48 experiments, 100+ commits. Code: `tools/`. Data: `experiments/`. All in [tonytranrp/hermes-thinking](https://github.com/tonytranrp/hermes-thinking).*

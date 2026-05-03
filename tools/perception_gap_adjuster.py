@@ -323,7 +323,7 @@ class PerceptionGapAdjuster:
                     for key, bias in self.biases.items():
                         if model in key:
                             max_bias = max(max_bias, abs(bias.get(dim, 0)))
-                    sensitivities[model][dim] = min(5.0, max_bias + 1.0)  # rough estimate
+                    sensitivities[model][dim] = min(5.0, max_bias + 1.0) if max_bias > 0 else 2.0  # rough estimate; no bias data = low sensitivity
         
         # Compute per-dimension coverage
         dim_coverage = []
