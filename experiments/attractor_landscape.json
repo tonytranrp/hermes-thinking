@@ -1,0 +1,45 @@
+{
+  "n_sources": 20,
+  "n_chains_per_source": 6,
+  "chain_length": 8,
+  "n_attractors": 5,
+  "attractor_stats": [
+    {
+      "cluster_id": 0,
+      "size": 25,
+      "avg_distance_to_centroid": 0.6357,
+      "intra_cluster_similarity": 0.0915,
+      "basin_depth": 0.3643
+    },
+    {
+      "cluster_id": 1,
+      "size": 26,
+      "avg_distance_to_centroid": 0.6319,
+      "intra_cluster_similarity": 0.0878,
+      "basin_depth": 0.3681
+    },
+    {
+      "cluster_id": 2,
+      "size": 25,
+      "avg_distance_to_centroid": 0.6134,
+      "intra_cluster_similarity": 0.1007,
+      "basin_depth": 0.3866
+    },
+    {
+      "cluster_id": 3,
+      "size": 22,
+      "avg_distance_to_centroid": 0.5839,
+      "intra_cluster_similarity": 0.1349,
+      "basin_depth": 0.4161
+    },
+    {
+      "cluster_id": 4,
+      "size": 22,
+      "avg_distance_to_centroid": 0.6101,
+      "intra_cluster_similarity": 0.1106,
+      "basin_depth": 0.3899
+    }
+  ],
+  "source_diversity": 3.7,
+  "dominant_basin_pct": 21.7
+}
