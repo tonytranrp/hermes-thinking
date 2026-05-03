@@ -43,6 +43,8 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Semantic Velocity** | Drift direction analysis — semantic attractors | [`tools/semantic_velocity.py`](tools/semantic_velocity.py) |
 | **Attractor Landscape** | Maps semantic basins in multi-model space | [`tools/attractor_landscape.py`](tools/attractor_landscape.py) |
 | **Cross-Session Drift** | Longitudinal co-evolution tracking | [`tools/cross_session_drift.py`](tools/cross_session_drift.py) |
+| **LLM Drift Tracker** | LLM-as-judge: semantic dimension rating (10 interpretable dimensions) | [`tools/llm_drift_tracker.py`](tools/llm_drift_tracker.py) |
+| **Perception Gap Adjuster** | Separates genuine drift from model-specific perception bias | [`tools/perception_gap_adjuster.py`](tools/perception_gap_adjuster.py) |
 
 ## Essays
 
