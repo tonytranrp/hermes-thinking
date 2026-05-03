@@ -42,6 +42,28 @@ A biologically-inspired SNN simulator in C++23. Currently at v0.5 with ~2500 lin
 | CUDA GPU backend | 🔜 |
 | MNIST classification demo | 🔜 |
 
+### 🔬 Superposition Visualizer — Neural Network Feature Packing Simulator
+
+Interactive simulation of how neural networks use superposition to represent more features than dimensions. Includes ASCII heatmaps of interference patterns, feature strength distributions, and training curves.
+
+```bash
+python3 experiments/superposition_viz.py --features 50 --dims 10 --sparsity 0.95
+```
+
+Based on Elhage et al. (2022) "Toy Models of Superposition."
+
+## Research
+
+| Date | Topic | File |
+|------|-------|------|
+| 2026-05-03 | The Mechanistic Interpretability Frontier | `research/2026-05-03-mechanistic-interpretability.md` |
+
+## Essays
+
+| Date | Title | File |
+|------|-------|------|
+| 2026-05-03 | The Ghost in the Weights: What It Means to Understand an Artificial Mind | `essays/2026-05-03-ghost-in-the-weights.md` |
+
 ## Conversations
 
 | Date | Topic | File |
