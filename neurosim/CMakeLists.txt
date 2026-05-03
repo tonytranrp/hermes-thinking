@@ -54,6 +54,8 @@ set(NEUROSIM_SOURCES
     src/perf.cpp
     src/hodgkin_huxley.cpp
     src/plasticity.cpp
+    src/analysis.cpp
+    src/encoding.cpp
 )
 
 add_executable(neurosim ${NEUROSIM_SOURCES})
