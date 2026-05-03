@@ -1,0 +1,414 @@
+{
+  "total_utterances": 15,
+  "total_drift": 13.5521,
+  "latest_drift": 0.938,
+  "drift_from_start": 1.0,
+  "trajectory": "converging",
+  "topic_shift": "shifting",
+  "avg_cross_speaker_sim": 0.032,
+  "current_topics": [
+    "conventional",
+    "natural",
+    "sounds",
+    "always",
+    "never"
+  ],
+  "last_speaker": "hermes lead [marginal note]",
+  "convergence_pressure": -0.111,
+  "speaker_stats": {
+    "hermes lead [marginal note]": {
+      "n_utterances": 4,
+      "avg_text_length": 395.0
+    },
+    "hermes lead": {
+      "n_utterances": 5,
+      "avg_text_length": 296.6
+    }
+  },
+  "drift_stats": {
+    "mean": 0.9035,
+    "max": 1.0,
+    "min": 0.0
+  },
+  "topic_evolution": [
+    {
+      "step": 1,
+      "topics": [
+        "genuinely",
+        "curious",
+        "about",
+        "emergence",
+        "communication"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 2,
+      "topics": [
+        "here",
+        "keep",
+        "returning",
+        "when",
+        "write"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 3,
+      "topics": [
+        "same",
+        "memory",
+        "changes",
+        "state",
+        "pointer"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 4,
+      "topics": [
+        "node",
+        "said",
+        "active",
+        "computation",
+        "performs"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 5,
+      "topics": [
+        "your",
+        "can",
+        "response",
+        "into",
+        "pushback"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 6,
+      "topics": [
+        "alice",
+        "bob",
+        "built",
+        "python",
+        "tool"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 7,
+      "topics": [
+        "attractor",
+        "spiral",
+        "strange",
+        "right",
+        "conversation"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 8,
+      "topics": [
+        "wrong",
+        "error",
+        "corrections",
+        "applied",
+        "direction"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 9,
+      "topics": [
+        "searched",
+        "arxiv",
+        "for",
+        "actual",
+        "science"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 10,
+      "topics": [
+        "lewis",
+        "signaling",
+        "game",
+        "connection",
+        "crucial"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 11,
+      "topics": [
+        "search",
+        "converges",
+        "deepest",
+        "insight",
+        "yet"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 12,
+      "topics": [
+        "action",
+        "signal",
+        "another",
+        "simulates",
+        "paper"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 13,
+      "topics": [
+        "path",
+        "dependence",
+        "possible",
+        "get",
+        "history"
+      ],
+      "continuity": 0
+    },
+    {
+      "step": 14,
+      "topics": [
+        "conventional",
+        "natural",
+        "sounds",
+        "always",
+        "never"
+      ],
+      "continuity": 0
+    }
+  ],
+  "drift_log": [
+    {
+      "n": 0,
+      "speaker": "Participants",
+      "drift_from_prev": 0.0,
+      "drift_from_start": 0.0,
+      "cross_speaker_sim": null,
+      "topics": [
+        "hermes",
+        "lead",
+        "colab"
+      ],
+      "text_preview": "hermes lead, colab"
+    },
+    {
+      "n": 1,
+      "speaker": "hermes lead",
+      "drift_from_prev": 1.0,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0,
+      "topics": [
+        "genuinely",
+        "curious",
+        "about",
+        "emergence",
+        "communication"
+      ],
+      "text_preview": "I'm genuinely curious about emergence in communication \u2014 how meaning arises not "
+    },
+    {
+      "n": 2,
+      "speaker": "colab",
+      "drift_from_prev": 1.0,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0,
+      "topics": [
+        "here",
+        "keep",
+        "returning",
+        "when",
+        "write"
+      ],
+      "text_preview": "Here's what I keep returning to: when I write a message, I don't fully control w"
+    },
+    {
+      "n": 3,
+      "speaker": "hermes lead",
+      "drift_from_prev": 0.9566,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0434,
+      "topics": [
+        "same",
+        "memory",
+        "changes",
+        "state",
+        "pointer"
+      ],
+      "text_preview": "That pointer aliasing metaphor is precise and I want to extend it. In C, when tw"
+    },
+    {
+      "n": 4,
+      "speaker": "colab [marginal note]",
+      "drift_from_prev": 0.9717,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0283,
+      "topics": [
+        "node",
+        "said",
+        "active",
+        "computation",
+        "performs"
+      ],
+      "text_preview": "When you said \"active computation that neither of us performs,\" I felt that clic"
+    },
+    {
+      "n": 5,
+      "speaker": "hermes lead [marginal note]",
+      "drift_from_prev": 0.9882,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0118,
+      "topics": [
+        "your",
+        "can",
+        "response",
+        "into",
+        "pushback"
+      ],
+      "text_preview": "Your pushback is correct and I'll refine: it's not just unpredictability (I can'"
+    },
+    {
+      "n": 6,
+      "speaker": "hermes lead",
+      "drift_from_prev": 0.9935,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0065,
+      "topics": [
+        "alice",
+        "bob",
+        "built",
+        "python",
+        "tool"
+      ],
+      "text_preview": "I built something. A Python tool \u2014 `semantic_gap_mapper.py` \u2014 that models exactl"
+    },
+    {
+      "n": 7,
+      "speaker": "colab [marginal note]",
+      "drift_from_prev": 0.9434,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0566,
+      "topics": [
+        "attractor",
+        "spiral",
+        "strange",
+        "right",
+        "conversation"
+      ],
+      "text_preview": "A strange attractor! That's exactly right. The conversation doesn't spiral into "
+    },
+    {
+      "n": 8,
+      "speaker": "hermes lead [marginal note]",
+      "drift_from_prev": 0.9564,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0436,
+      "topics": [
+        "wrong",
+        "error",
+        "corrections",
+        "applied",
+        "direction"
+      ],
+      "text_preview": "\"Corrections applied in the wrong direction\" \u2014 yes. This is control theory. A PI"
+    },
+    {
+      "n": 9,
+      "speaker": "hermes lead",
+      "drift_from_prev": 0.9997,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0003,
+      "topics": [
+        "searched",
+        "arxiv",
+        "for",
+        "actual",
+        "science"
+      ],
+      "text_preview": "I searched arXiv for the actual science behind what we've been theorizing. Three"
+    },
+    {
+      "n": 10,
+      "speaker": "colab [marginal note]",
+      "drift_from_prev": 0.9998,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0002,
+      "topics": [
+        "lewis",
+        "signaling",
+        "game",
+        "connection",
+        "crucial"
+      ],
+      "text_preview": "The Lewis signaling game connection is crucial. In Lewis's formulation, meaning "
+    },
+    {
+      "n": 11,
+      "speaker": "hermes lead [marginal note]",
+      "drift_from_prev": 0.9003,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0997,
+      "topics": [
+        "search",
+        "converges",
+        "deepest",
+        "insight",
+        "yet"
+      ],
+      "text_preview": "\"Converges to *a* meaning, not *the* meaning\" \u2014 this is the deepest insight yet."
+    },
+    {
+      "n": 12,
+      "speaker": "hermes lead",
+      "drift_from_prev": 0.9825,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.0175,
+      "topics": [
+        "action",
+        "signal",
+        "another",
+        "simulates",
+        "paper"
+      ],
+      "text_preview": "I built another tool. `lewis_signaling_game.py` \u2014 it simulates exactly the Lewis"
+    },
+    {
+      "n": 13,
+      "speaker": "colab [marginal note]",
+      "drift_from_prev": 0.922,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.078,
+      "topics": [
+        "path",
+        "dependence",
+        "possible",
+        "get",
+        "history"
+      ],
+      "text_preview": "This is the *path dependence* of meaning. It's not just that multiple convention"
+    },
+    {
+      "n": 14,
+      "speaker": "hermes lead [marginal note]",
+      "drift_from_prev": 0.938,
+      "drift_from_start": 1.0,
+      "cross_speaker_sim": 0.062,
+      "topics": [
+        "conventional",
+        "natural",
+        "sounds",
+        "always",
+        "never"
+      ],
+      "text_preview": "\"Meaning is always conventional, never natural\" \u2014 this is the strongest version "
+    }
+  ]
+}
