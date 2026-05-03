@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-05-02T23:58:56.560486",
+  "mode": "full",
+  "results": {
+    "Meaning Drift Tracker": {
+      "fidelity": -0.0625,
+      "total_drift": 3.411,
+      "hops": 5
+    },
+    "Text-Mode Drift": {
+      "fidelity": 0.0,
+      "per_step_drift": 0.9783
+    },
+    "Drift Predictor": {
+      "predicted_fidelity": 0.8122,
+      "trajectory": "saturating",
+      "best_model": "logistic",
+      "model_comparison": {
+        "exponential": -28.54,
+        "logistic": -31.74,
+        "power_law": -26.37
+      }
+    },
+    "Drift Budget": {
+      "llm_dimension": {
+        "max_hops": 5,
+        "drift_rate": 0.068,
+        "drift_tax_pct": 6.8
+      },
+      "default": {
+        "max_hops": 2,
+        "drift_rate": 0.15,
+        "drift_tax_pct": 15.0
+      },
+      "text_tfidf": {
+        "max_hops": 0,
+        "drift_rate": 0.781,
+        "drift_tax_pct": 78.1
+      }
+    },
+    "Semantic Velocity": {
+      "avg_velocity": 0.1118,
+      "avg_alignment": 1.0,
+      "attractor_direction": "converging"
+    },
+    "Semantic Fingerprint": {
+      "DeepSeek-V4-Pro": {
+        "consistency": 0.98,
+        "discriminative_range": 0.71,
+        "blind_spot": "N/A"
+      },
+      "Llama-Nemotron-8B": {
+        "consistency": 0.96,
+        "discriminative_range": 0.119,
+        "blind_spot": "N/A"
+      },
+      "GLM-5.1-FP8": {
+        "consistency": "unknown",
+        "discriminative_range": "unknown",
+        "blind_spot": "N/A"
+      }
+    }
+  }
+}
