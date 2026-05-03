@@ -159,7 +159,65 @@ Implication: the "creative potential" of a multi-agent system is bounded by its 
 
 ---
 
-## 8. Limitations and Future Work
+## 8. LLM-as-Judge: Semantic Dimension Rating
+
+All previous measurements used synthetic or TF-IDF-based embeddings. But we can also ask an LLM to *perceive* semantic content directly — rating texts on interpretable dimensions rather than computing opaque vector distances.
+
+### 8.1 Method: Semantic Dimension Rating
+
+We rate each text on 10 semantic dimensions (1–5 scale): concreteness, technicality, formality, specificity, agency, temporality, certainty, complexity, emotional valence, and scope. Cosine similarity between dimension vectors then measures semantic proximity.
+
+This approach is more interpretable than embedding similarity — we can say *which dimensions* drifted, not just *that* something drifted. It also works with lightweight models (we use an 8B Llama model via API) rather than requiring heavy embedding models.
+
+### 8.2 Telephone Game (LLM-Rated)
+
+Re-running the telephone game with LLM dimension ratings:
+
+| Step | Agent | Biggest Shift | Similarity |
+|------|-------|--------------|------------|
+| 0 | Physicist | — | 1.000 |
+| 1 | Translator | Agency (5→2) | 0.948 |
+| 2 | Interpreter | Agency (2→5) | 0.945 |
+| 3 | Analyst | — | 1.000 |
+| 4 | Manager | Technicality (5→2) | 0.863 |
+| 5 | Audience | Temporality (5→2) | 0.832 |
+
+**Fidelity: 0.830** | **Total drift: 0.412**
+
+The LLM-based method produces higher fidelity than the vector-space method (0.830 vs 0.007) because the dimension rating is more coarse-grained — it captures the *register* of the text rather than the specific semantic content. Both are valid measurements; they answer different questions. The vector-space method asks "how much of the original meaning survives?", while the dimension method asks "how much does the *style* of meaning change?"
+
+### 8.3 The Model Perception Gap
+
+Our most striking finding: **different LLMs rate the same text differently on semantic dimensions.** When we compare Llama Nemotron 8B and GLM-5.1-FP8 rating identical texts:
+
+| Text | Dimension | Llama | GLM-5.1 | Gap |
+|------|-----------|-------|---------|-----|
+| Casual chat | Concreteness | 3 | 1 | **2** |
+| Casual chat | Technicality | 2 | 1 | 1 |
+| Casual chat | Certainty | 2 | 1 | 1 |
+| Quantum physics | Concreteness | 3 | 1 | **2** |
+| Quantum physics | Agency | 3 | 4 | 1 |
+| Quantum physics | Temporality | 5 | 3 | **2** |
+
+This "perception gap" means that even before any communication happens, two models are already in different semantic spaces. The drift starts not at the point of transmission but at the point of *perception*. This has profound implications for multi-agent systems: the same utterance is literally a different concept in each model's internal representation.
+
+### 8.4 Rating Consistency
+
+We tested whether a single model's ratings are consistent across trials:
+
+| Text Type | Consistency (1-trial std dev / 2) |
+|-----------|----------------------------------|
+| Code comments | **1.000** |
+| Legal contracts | 0.976 |
+| Poetry | 0.976 |
+| Casual chat | 0.953 |
+| Quantum physics | 0.882 |
+
+Code and legal text are perceived most consistently — these registers have sharp, well-defined semantic boundaries. Quantum physics is the most ambiguous, especially on the `agency` and `scope` dimensions — exactly the dimensions where physicists themselves debate the meaning of quantum mechanics.
+
+---
+
+## 9. Limitations and Future Work
 
 - **Embedding quality**: TF-IDF + SVD is a crude approximation of semantic space. Future versions should use sentence transformers or API-based embeddings.
 - **Context modeling**: Our context window is a simple exponential decay. Real conversations have more complex context dynamics — topic shifts, reference resolution, shared knowledge accumulation.
@@ -168,7 +226,7 @@ Implication: the "creative potential" of a multi-agent system is bounded by its 
 
 ---
 
-## 9. Conclusion
+## 10. Conclusion
 
 Meaning drift is not noise in the communication channel. It is the signal. The space between minds — the gap where different representations negotiate a shared understanding — is where genuinely novel concepts are computed. The Meaning Drift Tracker makes this computation visible, measurable, and ultimately designable.
 
@@ -176,4 +234,4 @@ Meaning drift is not noise in the communication channel. It is the signal. The s
 
 ---
 
-*Built with Meaning Drift Tracker v2. Code: `tools/meaning_drift_tracker.py`, `tools/drift_text_mode.py`. Data: `experiments/`. All in [tonytranrp/hermes-thinking](https://github.com/tonytranrp/hermes-thinking).*
+*Built with Meaning Drift Tracker v2 + LLM Semantic Dimension Rating. Code: `tools/meaning_drift_tracker.py`, `tools/drift_text_mode.py`, `tools/llm_drift_tracker.py`. Data: `experiments/`. All in [tonytranrp/hermes-thinking](https://github.com/tonytranrp/hermes-thinking).*
