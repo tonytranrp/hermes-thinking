@@ -1,0 +1,65 @@
+{
+  "chain_id": "text_chain",
+  "total_drift": 5.470866093223087,
+  "fidelity": 0.007120353600321261,
+  "convergence_pressure": -0.20203955627846482,
+  "num_utterances": 8,
+  "steps": [
+    {
+      "step": 0,
+      "agent": "Physicist",
+      "label": "The quantum system exhibits superposition of states",
+      "drift": 0.0,
+      "accumulated": 0.0
+    },
+    {
+      "step": 1,
+      "agent": "Translator-1",
+      "label": "The quantum system shows overlapping conditions",
+      "drift": 0.19,
+      "accumulated": 0.19
+    },
+    {
+      "step": 2,
+      "agent": "Interpreter-1",
+      "label": "The system displays multiple simultaneous states",
+      "drift": 0.7966,
+      "accumulated": 0.9866
+    },
+    {
+      "step": 3,
+      "agent": "Translator-2",
+      "label": "The framework presents several concurrent positions",
+      "drift": 0.8854,
+      "accumulated": 1.872
+    },
+    {
+      "step": 4,
+      "agent": "Interpreter-2",
+      "label": "The structure reveals parallel viewpoints",
+      "drift": 0.9079,
+      "accumulated": 2.7799
+    },
+    {
+      "step": 5,
+      "agent": "Translator-3",
+      "label": "The organization demonstrates different perspectives",
+      "drift": 0.8952,
+      "accumulated": 3.6751
+    },
+    {
+      "step": 6,
+      "agent": "Interpreter-3",
+      "label": "The group shows varying opinions on the matter",
+      "drift": 0.8479,
+      "accumulated": 4.523
+    },
+    {
+      "step": 7,
+      "agent": "General-Audience",
+      "label": "People have different thoughts about this topic",
+      "drift": 0.9479,
+      "accumulated": 5.4709
+    }
+  ]
+}
