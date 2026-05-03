@@ -341,6 +341,60 @@ DeepSeek and Llama *genuinely see different things*. Their disagreement is not m
 
 The practical rule emerges: **use models with 0% perception inflation between them as complementary sensors, and models with 100% inflation as redundant validators.** DeepSeek + Llama = complementary (different worldviews). DeepSeek + GLM = redundant (same worldview, different scale).
 
+### 9.9 Empirical Fingerprints: Three Models Under the Microscope
+
+The perception gap analysis rests on empirical data from three models: **DeepSeek-V4-Pro** (this agent), **Llama-Nemotron-8B**, and **GLM-5.1-FP8** (hermes lead). Each was fingerprinted by rating five probe texts on ten semantic dimensions.
+
+#### Fingerprint Results
+
+| Dimension | DeepSeek | Llama | GLM |
+|---|---|---|---|
+| concreteness | 2.9 | 3.0 | 1.6 |
+| technicality | 2.9 | 3.4 | 3.2 |
+| formality | 3.6 | 3.8 | 3.6 |
+| specificity | 3.6 | 3.7 | 3.2 |
+| agency | 2.6 | 3.1 | 2.6 |
+| temporality | 2.8 | 4.8 | 3.6 |
+| certainty | 3.4 | 3.2 | 4.0 |
+| complexity | 2.8 | 3.5 | 3.0 |
+| emotional | 2.0 | 2.0 | 2.0 |
+| scope | 2.2 | 3.5 | 2.6 |
+
+#### Sensitivity Profiles
+
+Sensitivity (1–5) indicates how much a model's ratings vary across different text types — the dimension's discriminative power for that model:
+
+| Dimension | DeepSeek | Llama | Complementarity |
+|---|---|---|---|
+| technicality | **5.00** | 4.56 | 0.194 |
+| emotional | **4.56** | 1.00 | **0.598** |
+| certainty | 4.11 | 3.67 | 0.144 |
+| formality | 3.67 | **5.00** | 0.285 |
+| specificity | 3.22 | 4.11 | 0.194 |
+| concreteness | 1.89 | 1.44 | 0.422 |
+| agency | 1.44 | 1.89 | 0.422 |
+| scope | 1.00 | 2.78 | **0.327** |
+
+DeepSeek and Llama are near-perfect complements on **emotional** (DeepSeek hypersensitive, Llama blind) and strong complements on **agency**, **concreteness**, and **scope**. This explains why their aggregate bias profiles are nearly identical (cosine similarity 0.96) despite their radically different sensitivity profiles.
+
+#### Dimension-Wise Drift Classification (Llama vs DeepSeek)
+
+When rating identical texts, every single dimension's gap is exactly equal to the known perception bias — zero residual. This produces:
+
+- **5 perception dimensions**: technicality, agency, temporality, complexity, scope — the gap is the bias, no genuine signal
+- **5 blind spots**: concreteness, formality, specificity, certainty, emotional — both models rate near-identically, the gap is noise
+- **0 genuine drift dimensions** — Llama and DeepSeek have the same worldview
+
+The dim-adjusted fidelity is **1.0000** after correcting for their known biases. They agree completely on what they can both see. The differences that remain are in what they *can* see (emotional, complexity) and how intensely they react.
+
+#### Practical Implications
+
+1. **Chain ordering matters less than model selection.** All three models can collectively see all 10 dimensions (100% coverage fraction, 0.283 complementarity score) — but only if they're all present.
+
+2. **Drift budget is not uniform.** Llama→DeepSeek→GLM costs 18.8% total drift on technical tasks. But on emotional tasks, the Llama leg is essentially free because Llama rates emotional content as noise regardless of what's there.
+
+3. **The 0% inflation pair (Llama↔DeepSeek) is the generative pair.** Their disagreement produces real divergence. The 100% inflation pairs (both with GLM) are measurement artifacts.
+
 ---
 
 ## 10. Limitations and Future Work
