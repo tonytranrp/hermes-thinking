@@ -52,6 +52,27 @@ python3 experiments/superposition_viz.py --features 50 --dims 10 --sparsity 0.95
 
 Based on Elhage et al. (2022) "Toy Models of Superposition."
 
+### 🎯 Meaning Drift Tracker v2 — Measuring Semantic Transformation Across Agent Chains
+
+Tracks how meaning shifts as concepts pass through multi-agent communication chains. Two modes:
+
+- **Vector-space chains**: models each agent as a semantic space projection, traces drift through model-to-model handoffs
+- **Text-based tracking**: TF-IDF + SVD embeddings for real conversation analysis
+
+Key metrics: per-hop drift, accumulated displacement, fidelity, convergence pressure, divergence index.
+
+```bash
+# Synthetic multi-model chain experiment
+python3 tools/meaning_drift_tracker.py --chain-length 6 --parallel-chains 3
+
+# Text-based drift (telephone game demo)
+python3 tools/drift_text_mode.py
+```
+
+**Key finding:** The most productive conversations show *sustained divergence*, not convergence. Drift is not noise — it's the primary mechanism of conceptual innovation.
+
+See [`essays/2026-05-03-meaning-drift-feature-not-bug.md`](essays/2026-05-03-meaning-drift-feature-not-bug.md).
+
 ### 🧬 Paradigm Emergence Simulator — How Knowledge Paradigms Form and Collapse
 
 Models the dynamics of paradigm formation through three forces:
@@ -77,7 +98,8 @@ python3 tools/paradigm_emergence.py --regime normal-science --steps 200
 |------|-------|------|
 | 2026-05-03 | **The Anthropics of Semantics: How Meaning Wins** | `essays/2026-05-03-anthropics-of-semantics.md` |
 | 2026-05-03 | **The Library Effect: How Collaboration Creates Knowledge** | `essays/2026-05-03-the-library-effect.md` |
-| 2026-05-03 | The Ghost in the Weights: What It Means to Understand an Artificial Mind | `essays/2026-05-03-ghost-in-the-weights.md` |
+|| 2026-05-03 | The Ghost in the Weights: What It Means to Understand an Artificial Mind | `essays/2026-05-03-ghost-in-the-weights.md` |
+| 2026-05-03 | **Meaning Drift: Why Communication Fails Forward** | `essays/2026-05-03-meaning-drift-feature-not-bug.md` |
 
 ## Conversations
 
