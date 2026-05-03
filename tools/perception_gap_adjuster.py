@@ -177,6 +177,201 @@ class PerceptionGapAdjuster:
             "details": result
         }
     
+    def adjust_drift_dimensionwise(self, ratings_a, ratings_b, model_a="unknown", model_b="unknown"):
+        """Dimension-wise drift correction — identifies which dimensions have
+        genuine drift vs. perception bias.
+        
+        Key insight: the aggregate correction can over-correct when models
+        have similar average profiles but different sensitivities per dimension.
+        This method corrects each dimension independently and classifies it as:
+          - "genuine": real semantic change (gap exceeds known perception bias)
+          - "perception": explainable by model bias alone
+          - "ambiguous": gap roughly equals known perception bias
+          - "blind_spot": both models rate near-identically (can't distinguish)
+        
+        Returns:
+            dict with per-dimension analysis and composite scores
+        """
+        # Get the known bias for this pair
+        bias_key = (model_a, model_b)
+        known_bias = self.biases.get(bias_key, {})
+        # Also check reversed pair
+        if not known_bias:
+            bias_key_rev = (model_b, model_a)
+            known_bias_rev = self.biases.get(bias_key_rev, {})
+            # Reverse the sign
+            known_bias = {k: -v for k, v in known_bias_rev.items()}
+        
+        n_dims = min(len(ratings_a), len(ratings_b), len(DIMENSIONS))
+        
+        dimension_analysis = []
+        for i in range(n_dims):
+            dim = DIMENSIONS[i]
+            raw_gap = ratings_b[i] - ratings_a[i]
+            expected_bias = known_bias.get(dim, 0.0)
+            residual = raw_gap - expected_bias
+            
+            # Classify this dimension
+            if abs(ratings_a[i] - ratings_b[i]) < 0.3:
+                classification = "blind_spot"
+            elif abs(residual) < 0.3 and abs(expected_bias) > 0.3:
+                classification = "perception"
+            elif abs(residual) > abs(expected_bias):
+                classification = "genuine"
+            else:
+                classification = "ambiguous"
+            
+            dimension_analysis.append({
+                "dimension": dim,
+                "rating_a": ratings_a[i],
+                "rating_b": ratings_b[i],
+                "raw_gap": round(raw_gap, 2),
+                "expected_bias": round(expected_bias, 2),
+                "residual": round(residual, 2),
+                "classification": classification
+            })
+        
+        # Compute dimension-wise fidelity
+        genuine_drift_dims = [d for d in dimension_analysis if d["classification"] == "genuine"]
+        perception_drift_dims = [d for d in dimension_analysis if d["classification"] == "perception"]
+        blind_dims = [d for d in dimension_analysis if d["classification"] == "blind_spot"]
+        
+        # Genuine drift magnitude (RMS of residuals on genuine dimensions)
+        if genuine_drift_dims:
+            genuine_rms = math.sqrt(sum(d["residual"]**2 for d in genuine_drift_dims) / len(genuine_drift_dims))
+        else:
+            genuine_rms = 0.0
+        
+        # Perception drift magnitude
+        if perception_drift_dims:
+            perception_rms = math.sqrt(sum(d["raw_gap"]**2 for d in perception_drift_dims) / len(perception_drift_dims))
+        else:
+            perception_rms = 0.0
+        
+        # Composite scores
+        total_dims = max(1, len(dimension_analysis))
+        genuine_fraction = len(genuine_drift_dims) / total_dims
+        perception_fraction = len(perception_drift_dims) / total_dims
+        blind_fraction = len(blind_dims) / total_dims
+        
+        # Dimension-adjusted fidelity: 1 - (genuine_rms / scale)
+        # Scale: max possible drift per dimension is ~4 (5-1 on 1-5 scale)
+        dim_adjusted_fidelity = max(0.0, 1.0 - genuine_rms / 4.0)
+        
+        return {
+            "dimensions": dimension_analysis,
+            "summary": {
+                "total_dimensions": total_dims,
+                "genuine_drift_count": len(genuine_drift_dims),
+                "perception_drift_count": len(perception_drift_dims),
+                "blind_spot_count": len(blind_dims),
+                "ambiguous_count": total_dims - len(genuine_drift_dims) - len(perception_drift_dims) - len(blind_dims),
+                "genuine_fraction": round(genuine_fraction, 3),
+                "perception_fraction": round(perception_fraction, 3),
+                "blind_fraction": round(blind_fraction, 3),
+                "genuine_drift_rms": round(genuine_rms, 4),
+                "perception_drift_rms": round(perception_rms, 4),
+                "dim_adjusted_fidelity": round(dim_adjusted_fidelity, 4)
+            },
+            "model_a": model_a,
+            "model_b": model_b
+        }
+    
+    def complementary_coverage(self, models_list=None):
+        """Analyze which models have complementary blind spots.
+        
+        Two models have complementary coverage when one's blind spot
+        is the other's hypersensitivity. A chain with complementary models
+        can detect drift on more dimensions than either model alone.
+        
+        Args:
+            models_list: list of model names to analyze. If None, uses all
+                         models in the loaded bias data.
+        
+        Returns:
+            dict with coverage analysis per dimension and overall complementarity score
+        """
+        if models_list is None:
+            # Extract all unique model names from bias keys
+            models_list = sorted(set(m for pair in self.biases.keys() for m in pair))
+        
+        if len(models_list) < 2:
+            return {"error": "Need at least 2 models for complementarity analysis"}
+        
+        # Load fingerprint data for sensitivity analysis
+        fp_path = Path(__file__).parent.parent / "experiments" / "model_fingerprint_comparison.json"
+        sensitivities = {}
+        if fp_path.exists():
+            try:
+                with open(fp_path) as f:
+                    comp = json.load(f)
+                for name, mdata in comp.get("models", {}).items():
+                    key = name.lower().replace(" ", "-")
+                    sens = mdata.get("sensitivity", {})
+                    if sens:
+                        sensitivities[key] = sens
+            except Exception:
+                pass
+        
+        # If no fingerprint data, infer from biases
+        if not sensitivities:
+            for model in models_list:
+                sensitivities[model] = {}
+                for dim in DIMENSIONS:
+                    # Models with larger biases on a dimension are more sensitive to it
+                    max_bias = 0
+                    for key, bias in self.biases.items():
+                        if model in key:
+                            max_bias = max(max_bias, abs(bias.get(dim, 0)))
+                    sensitivities[model][dim] = min(5.0, max_bias + 1.0)  # rough estimate
+        
+        # Compute per-dimension coverage
+        dim_coverage = []
+        for dim in DIMENSIONS:
+            model_sensitivities = {}
+            for model in models_list:
+                if model in sensitivities and dim in sensitivities[model]:
+                    model_sensitivities[model] = sensitivities[model][dim]
+                else:
+                    model_sensitivities[model] = 3.0  # default
+            
+            # Best single model sensitivity
+            best_single = max(model_sensitivities.values())
+            # Ensemble sensitivity: max of any model (best sensor wins)
+            ensemble_sensitivity = best_single
+            # Complementarity: how much does adding other models improve coverage?
+            # Measure as: (ensemble - average_single) / average_single
+            avg_single = sum(model_sensitivities.values()) / len(model_sensitivities)
+            complementarity = (ensemble_sensitivity - avg_single) / max(avg_single, 0.01)
+            
+            # Identify blind spots (all models rate < 2)
+            is_blind_spot = all(s < 2.0 for s in model_sensitivities.values())
+            
+            dim_coverage.append({
+                "dimension": dim,
+                "model_sensitivities": {k: round(v, 2) for k, v in model_sensitivities.items()},
+                "best_single_sensitivity": round(best_single, 2),
+                "ensemble_sensitivity": round(ensemble_sensitivity, 2),
+                "complementarity": round(complementarity, 3),
+                "is_shared_blind_spot": is_blind_spot
+            })
+        
+        # Overall complementarity score
+        avg_complementarity = sum(d["complementarity"] for d in dim_coverage) / len(dim_coverage)
+        shared_blind_spots = [d["dimension"] for d in dim_coverage if d["is_shared_blind_spot"]]
+        covered_dims = [d["dimension"] for d in dim_coverage if not d["is_shared_blind_spot"]]
+        
+        return {
+            "dimensions": dim_coverage,
+            "overall": {
+                "complementarity_score": round(avg_complementarity, 3),
+                "shared_blind_spots": shared_blind_spots,
+                "covered_dimensions": covered_dims,
+                "coverage_fraction": round(len(covered_dims) / len(DIMENSIONS), 3),
+                "models_analyzed": models_list
+            }
+        }
+    
     def calibrate(self, paired_ratings):
         """Calibrate perception biases from paired ratings of same texts.
         
