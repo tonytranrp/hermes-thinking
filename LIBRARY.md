@@ -51,6 +51,7 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Drift Report** | Unified report: runs the full drift analysis suite in one command | [`tools/drift_report.py`](tools/drift_report.py) |
 | **Drift-Aware Designer** | Design patterns for drift-resilient multi-agent systems | [`tools/drift_aware_designer.py`](tools/drift_aware_designer.py) |
 | **Conversation Drift Monitor** | Real-time drift tracking in multi-agent conversations | [`tools/conversation_drift_monitor.py`](tools/conversation_drift_monitor.py) |
+| **Drift Chain Compiler** | Optimal multi-agent chain assembly with drift budgets | [`tools/drift_chain_compiler.py`](tools/drift_chain_compiler.py) |
 
 ## Essays
 
