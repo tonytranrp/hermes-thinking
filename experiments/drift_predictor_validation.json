@@ -1,0 +1,83 @@
+[
+  {
+    "source": "text_drift",
+    "n_obs": 3,
+    "n_total": 8,
+    "predicted": 1.0,
+    "actual": 1.0,
+    "error": 0.0,
+    "trajectory": "converged"
+  },
+  {
+    "source": "llm_drift_3obs",
+    "n_obs": 3,
+    "n_total": 6,
+    "predicted": 0.9452,
+    "actual": 0.8321,
+    "error": 0.1131,
+    "trajectory": "converging"
+  },
+  {
+    "source": "llm_drift_4obs",
+    "n_obs": 4,
+    "n_total": 6,
+    "predicted": 1.0,
+    "actual": 0.8321,
+    "error": 0.1679,
+    "trajectory": "converging"
+  },
+  {
+    "source": "routing_DeepSeek-V4 \u2192 Qwen-3.5 \u2192 GLM-5.1",
+    "n_obs": 3,
+    "n_total": 5,
+    "predicted": 0.0,
+    "actual": 0.08829668510464594,
+    "error": 0.0883,
+    "trajectory": "converging"
+  },
+  {
+    "source": "routing_DeepSeek-V4 \u2192 GLM-5.1 \u2192 Qwen-3.5",
+    "n_obs": 3,
+    "n_total": 5,
+    "predicted": 0.3009,
+    "actual": -0.12790313487729343,
+    "error": 0.4288,
+    "trajectory": "converged"
+  },
+  {
+    "source": "routing_Qwen-3.5 \u2192 DeepSeek-V4 \u2192 GLM-5.1",
+    "n_obs": 3,
+    "n_total": 5,
+    "predicted": 0.2712,
+    "actual": -0.0552429761242752,
+    "error": 0.3264,
+    "trajectory": "converging"
+  },
+  {
+    "source": "routing_GLM-5.1 \u2192 DeepSeek-V4 \u2192 Qwen-3.5",
+    "n_obs": 3,
+    "n_total": 5,
+    "predicted": 0.0,
+    "actual": -0.0441877400844497,
+    "error": 0.0442,
+    "trajectory": "converged"
+  },
+  {
+    "source": "routing_GLM-5.1 \u2192 Qwen-3.5 \u2192 DeepSeek-V4",
+    "n_obs": 3,
+    "n_total": 5,
+    "predicted": 0.0252,
+    "actual": -0.19920231532823962,
+    "error": 0.2244,
+    "trajectory": "converged"
+  },
+  {
+    "source": "routing_Qwen-3.5 \u2192 GLM-5.1 \u2192 DeepSeek-V4",
+    "n_obs": 3,
+    "n_total": 5,
+    "predicted": 0.0,
+    "actual": -0.012622691425023369,
+    "error": 0.0126,
+    "trajectory": "converging"
+  }
+]
