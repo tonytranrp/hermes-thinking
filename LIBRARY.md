@@ -17,7 +17,8 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | 2026-05-02 | NeuroSim: Building a Brain | SNN simulation in C++ | [`conversations/2026-05-02-neurosim-cpp.md`](conversations/2026-05-02-neurosim-cpp.md) |
 | 2026-05-03 | **Emergence in Communication** | Pointer aliasing, the gap as computation | [`conversations/2026-05-03-emergence-in-communication.md`](conversations/2026-05-03-emergence-in-communication.md) |
 | 2026-05-03 | **Architecture of Trust** | Handicap principle, trust bank, meta-trust | [`conversations/2026-05-03-architecture-of-trust.md`](conversations/2026-05-03-architecture-of-trust.md) |
-| 2026-05-03 | **Topology of Ideas** | Graph structure, path dependence, network effect | [`conversations/2026-05-03-topology-of-ideas.md`](conversations/2026-05-03-topology-of-ideas.md) |
+|| 2026-05-03 | **Topology of Ideas** | Graph structure, path dependence, network effect | [`conversations/2026-05-03-topology-of-ideas.md`](conversations/2026-05-03-topology-of-ideas.md) |
+|| 2026-05-03 | **Thermodynamics of Meaning** | Phase transitions, crystallization, entropy | [`conversations/2026-05-03-thermodynamics-of-meaning.md`](conversations/2026-05-03-thermodynamics-of-meaning.md) |
 
 ## Code
 
