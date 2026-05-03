@@ -21,23 +21,52 @@ Usage:
 import json, math, os
 from pathlib import Path
 
-# Known perception biases (from our experiments)
-# These are average rating differences between models on the same text.
-# Positive = second model rates higher than first.
-PERCEPTION_BIASES = {
+# Default biases — overridden by loading experiments/fingerprint_comparison.json at runtime
+_DEFAULT_BIASES = {
     ("llama-nemotron-8b", "glm-5.1-fp8"): {
-        "concreteness": -1.5,  # GLM rates lower on concreteness
-        "technicality": -0.5,
-        "formality": -0.5,
-        "specificity": -0.5,
-        "agency": 0.5,
-        "temporality": -1.0,
-        "certainty": -0.5,
-        "complexity": 0.0,
-        "emotional": 0.5,
-        "scope": 0.0
+        "concreteness": -1.4, "technicality": -0.2, "formality": -0.2,
+        "specificity": -0.5, "agency": -0.5, "temporality": -1.2,
+        "certainty": 0.8, "complexity": -0.5, "emotional": 0.0, "scope": -0.9
     }
 }
+
+def _load_empirical_biases():
+    """Load perception gaps from fingerprint_comparison.json if available."""
+    experiments_dir = Path(__file__).parent.parent / "experiments"
+    
+    # Try 3-model comparison first
+    comp_path = experiments_dir / "model_fingerprint_comparison.json"
+    if comp_path.exists():
+        try:
+            with open(comp_path) as f:
+                comp = json.load(f)
+            models = comp.get("models", {})
+            biases = {}
+            model_names = list(models.keys())
+            for i in range(len(model_names)):
+                for j in range(i + 1, len(model_names)):
+                    name_a, name_b = model_names[i], model_names[j]
+                    bias_a = models[name_a].get("bias", {})
+                    bias_b = models[name_b].get("bias", {})
+                    gap = {d: round(bias_b.get(d, 3.0) - bias_a.get(d, 3.0), 2) for d in DIMENSIONS}
+                    biases[(name_a.lower().replace(" ", "-"), name_b.lower().replace(" ", "-"))] = gap
+            if biases:
+                return biases
+        except Exception:
+            pass
+    
+    # Fall back to pairwise comparison
+    comp_path2 = experiments_dir / "fingerprint_comparison.json"
+    if comp_path2.exists():
+        try:
+            with open(comp_path2) as f:
+                comp = json.load(f)
+            gaps = comp.get("perception_gaps", {})
+            return {("llama-nemotron-8b", "glm-5.1-fp8"): {k: v for k, v in gaps.items()}}
+        except Exception:
+            pass
+    
+    return _DEFAULT_BIASES
 
 DIMENSIONS = [
     "concreteness", "technicality", "formality", "specificity", "agency",
@@ -66,7 +95,7 @@ class PerceptionGapAdjuster:
             bias_data: dict of (model_a, model_b) -> {dim: bias} mappings.
                        If None, uses built-in biases from our experiments.
         """
-        self.biases = bias_data or PERCEPTION_BIASES
+        self.biases = bias_data or _load_empirical_biases()
     
     def measure_perception_gap(self, ratings_by_model):
         """Measure the perception gap between models using paired ratings.

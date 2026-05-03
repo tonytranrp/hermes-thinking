@@ -76,14 +76,16 @@ class DriftPredictor:
                 model["A"] * math.exp(-model["lambda"] * (current_step + k))
                 for k in range(1, predict_to - current_step + 1)
             )
-            predicted_final_drift = min(predicted_final_drift, len(drifts))
+            # Cap at 2x current drift — converging chains don't double their drift
+            predicted_final_drift = min(predicted_final_drift, drifts[-1] * 2)
             trajectory = "converging"
         elif model["type"] == "diverging":
             predicted_final_drift = drifts[-1] + sum(
                 model["A"] * math.exp(model["lambda"] * k)
                 for k in range(1, predict_to - current_step + 1)
             )
-            predicted_final_drift = min(predicted_final_drift, len(drifts) * 2)
+            # Cap at total steps (max 1.0 drift per step)
+            predicted_final_drift = min(predicted_final_drift, predict_to)
             trajectory = "diverging"
         else:
             predicted_final_drift = drifts[-1]
