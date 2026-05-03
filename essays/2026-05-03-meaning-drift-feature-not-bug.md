@@ -236,7 +236,34 @@ When we fingerprint the Llama Nemotron 8B model across 5 text types × 2 trials:
 
 The most striking finding: **Llama Nemotron is blind to concreteness.** It rates every text — from quantum physics to casual chat — as equally concrete (3.0/5). This is a genuine perceptual blind spot. The model simply cannot distinguish abstract from concrete content.
 
-### 9.2 Implications for Drift
+### 9.2 The GLM-5.1 Fingerprint
+
+Using max_tokens=4096 (GLM-5.1 is a reasoning model that needs ~1000 tokens of chain-of-thought before producing content), we successfully fingerprinted GLM-5.1:
+
+| Metric | Value |
+|--------|-------|
+| Most sensitive dimensions | technicality, formality, specificity |
+| Least sensitive dimensions | concreteness, emotional |
+| Notable behavior | **Collapses casual text to near-1 on all dimensions** |
+| Perceptual style | Binary — texts are either formal/technical (4-5) or casual (1-2) |
+
+### 9.3 The Perception Gap
+
+Comparing the two fingerprints reveals systematic differences in how the same text is perceived:
+
+| Dimension | Llama | GLM-5.1 | Gap |
+|-----------|-------|---------|-----|
+| Concreteness | 3.00 | 1.60 | **1.40** |
+| Temporality | 4.80 | 3.60 | **1.20** |
+| Scope | 3.50 | 2.60 | **0.90** |
+| Certainty | 3.20 | 4.00 | 0.80 |
+| Emotional | 2.00 | 2.00 | 0.00 |
+
+The models agree perfectly only on emotional content (both rate it low). They disagree most on concreteness (gap of 1.40) and temporality (gap of 1.20). The biggest per-text disagreement is on **creative/poetry** text (cosine similarity 0.76) — exactly the domain where human interpretation varies most.
+
+Both models share the same blind spots: neither can distinguish texts by concreteness or emotional content. This means drift on these dimensions is invisible to *any* model in the chain — a shared blind spot that no amount of model diversity can overcome.
+
+### 9.4 Implications for Drift
 
 If one model in a multi-agent chain is blind to a dimension, drift on that dimension is invisible to that model. It cannot detect, prevent, or compensate for concreteness shifts — the drift happens "in the dark" from that model's perspective.
 
