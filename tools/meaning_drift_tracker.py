@@ -82,16 +82,33 @@ class SemanticSpace:
         self.rotation = self._make_rotation(seed)
 
     def _make_rotation(self, seed) -> List[List[float]]:
-        """Create a random rotation-like projection."""
+        """Create a proper orthogonal rotation matrix via QR decomposition.
+        
+        Previous version used individually-normalized rows that were NOT orthogonal,
+        distorting pairwise distances. QR decomposition ensures orthogonality,
+        so drift measurements reflect true semantic displacement.
+        """
         r = __import__('random').Random(seed)
-        matrix = []
-        for _ in range(self.dimensions):
-            row = [r.gauss(0, 1) for _ in range(self.dimensions)]
-            # Normalize
-            norm = math.sqrt(sum(x * x for x in row))
-            row = [x / norm for x in row]
-            matrix.append(row)
-        return matrix
+        # Build random matrix
+        A = [[r.gauss(0, 1) for _ in range(self.dimensions)]
+             for _ in range(self.dimensions)]
+        # Gram-Schmidt QR decomposition for orthogonality
+        Q = []
+        for j in range(self.dimensions):
+            v = A[j][:]
+            for i in range(len(Q)):
+                proj = sum(v[k] * Q[i][k] for k in range(self.dimensions))
+                v = [v[k] - proj * Q[i][k] for k in range(self.dimensions)]
+            norm = math.sqrt(sum(x * x for x in v))
+            if norm < 1e-10:
+                v = [r.gauss(0, 1) for _ in range(self.dimensions)]
+                norm = math.sqrt(sum(x * x for x in v))
+            Q.append([x / norm for x in v])
+        # Ensure proper rotation (det > 0) — check via sign of first pivot
+        # Simple heuristic: if Q[0][0] < 0, flip first row
+        if Q[0][0] < 0:
+            Q[0] = [-q for q in Q[0]]
+        return Q
 
     def project(self, concept: List[float]) -> List[float]:
         """Project a concept through this agent's semantic space."""

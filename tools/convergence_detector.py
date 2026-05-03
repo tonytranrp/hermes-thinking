@@ -35,6 +35,8 @@ def detect_phase_transitions(drifts: list, window: int = 3) -> list:
     
     transitions = []
     for i in range(1, len(pressures)):
+        # pressures > 0 means converging (drift decelerating)
+        # pressures < 0 means diverging (drift accelerating)
         if pressures[i-1] < 0 and pressures[i] >= 0:
             transitions.append({"step": i + window // 2, "type": "divergent->convergent"})
         elif pressures[i-1] >= 0 and pressures[i] < 0:
