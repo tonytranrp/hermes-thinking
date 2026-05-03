@@ -49,6 +49,11 @@ set(NEUROSIM_SOURCES
     src/allocator.cpp
     src/spike_logger.cpp
     src/visualization.cpp
+    src/spike_queue.cpp
+    src/topology.cpp
+    src/perf.cpp
+    src/hodgkin_huxley.cpp
+    src/plasticity.cpp
 )
 
 add_executable(neurosim ${NEUROSIM_SOURCES})
