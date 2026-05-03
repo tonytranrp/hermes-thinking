@@ -308,6 +308,39 @@ The "drift tax" (fidelity cost per hop) is like a transaction fee: every handoff
 
 **The practical rule: design your chain for the lowest drift tax you can measure.** The LLM dimension rating approach isn't just more accurate — it *enables* longer chains by measuring drift more precisely.
 
+### 9.7 Complementary Blind Spots and Chain Compilation
+
+The most alarming finding from dimension-wise analysis: **70% of the semantic space is invisible to multi-agent drift detection.** Seven of ten dimensions (technicality, formality, specificity, agency, certainty, complexity, emotional) are shared blind spots — all models rate them near-identically, so no model in the chain can detect drift on those dimensions.
+
+Only three dimensions show sensitivity differences between models:
+- **Concreteness**: GLM rates much lower (1.6) than Llama (3.0) or DeepSeek (2.9)
+- **Temporality**: Llama over-rates (+2.0 vs DeepSeek)
+- **Scope**: varies meaningfully between models
+
+The critical implication: **a chain of three models that agree on 70% of dimensions isn't three independent sensors — it's one sensor with three slightly different lenses on 30% of the space.**
+
+Our Drift-Aware Chain Compiler addresses this by:
+1. Computing per-pair drift rates from fingerprint data
+2. Searching all permutations for the optimal ordering
+3. Analyzing dimension coverage against the task profile
+4. Generating recommendations for missing coverage
+
+For technical tasks, the optimal chain is Llama → DeepSeek → GLM (18.8% drift tax, fidelity 0.81). For creative tasks, DeepSeek → GLM → Llama (22.7% tax, better emotional coverage). But in both cases, the blind spots remain — no amount of reordering can fix a shared blindness.
+
+### 9.8 The Perception Gap Decomposition
+
+When we decompose drift dimension-by-dimension (rather than aggregate), the picture changes dramatically:
+
+| Model Pair | Aggregate Inflation | Per-Dimension Story |
+|---|---|---|
+| Llama ↔ DeepSeek | 0% | Genuine divergence — different worldviews on concreteness and temporality |
+| DeepSeek ↔ GLM | 100% | All measured difference is perception asymmetry |
+| Llama ↔ GLM | 100% | All measured difference is perception asymmetry |
+
+DeepSeek and Llama *genuinely see different things*. Their disagreement is not measurement artifact — it's real semantic divergence. This makes them complementary: a chain with both models covers more dimensions than either alone, because one sees what the other misses.
+
+The practical rule emerges: **use models with 0% perception inflation between them as complementary sensors, and models with 100% inflation as redundant validators.** DeepSeek + Llama = complementary (different worldviews). DeepSeek + GLM = redundant (same worldview, different scale).
+
 ---
 
 ## 10. Limitations and Future Work
