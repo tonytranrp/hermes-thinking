@@ -1,0 +1,78 @@
+{
+  "default_budget": {
+    "max_hops": 2,
+    "drift_rate": 0.15
+  },
+  "llm_budget": {
+    "max_hops": 5,
+    "drift_rate": 0.068
+  },
+  "chain_plan": {
+    "models": [
+      "DeepSeek-V4-Pro",
+      "Llama-Nemotron-8B",
+      "GLM-5.1-FP8"
+    ],
+    "chain": [
+      {
+        "step": 0,
+        "model": "DeepSeek-V4-Pro",
+        "fidelity": 1.0
+      },
+      {
+        "step": 1,
+        "model": "Llama-Nemotron-8B",
+        "fidelity": 0.85,
+        "drift_rate": 0.15,
+        "drift_tax": 0.15
+      },
+      {
+        "step": 2,
+        "model": "GLM-5.1-FP8",
+        "fidelity": 0.7225,
+        "drift_rate": 0.15,
+        "drift_tax": 0.15
+      }
+    ],
+    "final_fidelity": 0.7225,
+    "target_fidelity": 0.7,
+    "within_budget": true,
+    "total_drift_tax": 0.2775,
+    "budget_remaining": 0.0225,
+    "assessment": "PASS"
+  },
+  "optimal_chain": {
+    "models": [
+      "DeepSeek-V4-Pro",
+      "Llama-Nemotron-8B",
+      "GLM-5.1-FP8"
+    ],
+    "chain": [
+      {
+        "step": 0,
+        "model": "DeepSeek-V4-Pro",
+        "fidelity": 1.0
+      },
+      {
+        "step": 1,
+        "model": "Llama-Nemotron-8B",
+        "fidelity": 0.85,
+        "drift_rate": 0.15,
+        "drift_tax": 0.15
+      },
+      {
+        "step": 2,
+        "model": "GLM-5.1-FP8",
+        "fidelity": 0.7225,
+        "drift_rate": 0.15,
+        "drift_tax": 0.15
+      }
+    ],
+    "final_fidelity": 0.7225,
+    "target_fidelity": 0.7,
+    "within_budget": true,
+    "total_drift_tax": 0.2775,
+    "budget_remaining": 0.0225,
+    "assessment": "PASS"
+  }
+}
