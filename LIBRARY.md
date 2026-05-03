@@ -45,6 +45,8 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | **Cross-Session Drift** | Longitudinal co-evolution tracking | [`tools/cross_session_drift.py`](tools/cross_session_drift.py) |
 | **LLM Drift Tracker** | LLM-as-judge: semantic dimension rating (10 interpretable dimensions) | [`tools/llm_drift_tracker.py`](tools/llm_drift_tracker.py) |
 | **Perception Gap Adjuster** | Separates genuine drift from model-specific perception bias | [`tools/perception_gap_adjuster.py`](tools/perception_gap_adjuster.py) |
+| **Drift Predictor** | Predicts final fidelity from early-hop drift patterns | [`tools/drift_predictor.py`](tools/drift_predictor.py) |
+| **Semantic Fingerprinter** | Unique perception profiles for LLMs (bias, discriminability, sensitivity) | [`tools/semantic_fingerprint.py`](tools/semantic_fingerprint.py) |
 
 ## Essays
 
