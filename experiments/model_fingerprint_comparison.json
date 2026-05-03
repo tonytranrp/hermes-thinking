@@ -55,7 +55,19 @@
       "consistency": 0.98,
       "discriminative_range": 0.71,
       "known_blind_spot": "temporality (rates 2.0+ points lower than Llama)",
-      "known_hypersensitivity": "technicality + emotional + certainty"
+      "known_hypersensitivity": "technicality + emotional + certainty",
+      "sensitivity": {
+        "technicality": 5.0,
+        "emotional": 4.56,
+        "certainty": 4.11,
+        "formality": 3.67,
+        "specificity": 3.22,
+        "temporality": 2.78,
+        "complexity": 2.33,
+        "concreteness": 1.89,
+        "agency": 1.44,
+        "scope": 1.0
+      }
     },
     "Llama-Nemotron-8B": {
       "description": "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3",
@@ -98,7 +110,19 @@
       "consistency": 0.96,
       "discriminative_range": 0.119,
       "known_blind_spot": "concreteness",
-      "known_hypersensitivity": "temporality (rates 2.0+ points higher than DeepSeek)"
+      "known_hypersensitivity": "temporality (rates 2.0+ points higher than DeepSeek)",
+      "sensitivity": {
+        "formality": 5.0,
+        "technicality": 4.56,
+        "specificity": 4.11,
+        "certainty": 3.67,
+        "complexity": 3.22,
+        "scope": 2.78,
+        "temporality": 2.33,
+        "agency": 1.89,
+        "concreteness": 1.44,
+        "emotional": 1.0
+      }
     },
     "GLM-5.1-FP8": {
       "description": "zai-org/GLM-5.1-FP8",
