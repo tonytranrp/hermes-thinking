@@ -114,7 +114,38 @@ The meaning drift tracker makes this computation visible.
 
 ---
 
-## 5. Limitations and Future Work
+## 5. Routing Order Is a Design Parameter
+
+A natural question: does the *order* in which models process a concept affect the outcome? We tested all 6 permutations of three models (GLM-5.1, DeepSeek-V4, Qwen-3.5) across 5 source concepts:
+
+| Permutation | Avg Fidelity |
+|-------------|-------------|
+| DeepSeek → Qwen → GLM | **+0.0907** |
+| DeepSeek → GLM → Qwen | +0.0874 |
+| Qwen → DeepSeek → GLM | -0.0294 |
+| GLM → DeepSeek → Qwen | -0.0550 |
+| GLM → Qwen → DeepSeek | -0.0784 |
+| Qwen → GLM → DeepSeek | **-0.1090** |
+
+**Fidelity spread: 0.20** between best and worst routing orders. The same three models, same concepts, but the sequence alone determines whether meaning is preserved or inverted.
+
+Implication for multi-agent system design: **routing order is a first-class design parameter**, as important as model selection itself.
+
+---
+
+## 6. Context: The Convergence Dial
+
+We ran a 7×6 parameter sweep varying context weight (0.0–0.5) and context window (0–8 turns) to understand how shared context affects drift:
+
+- **Low context (wt < 0.05)**: Drift dominates, no convergence pressure
+- **Sweet spot (wt 0.10–0.15, window 2–3)**: Some convergence without over-smoothing
+- **High context (wt > 0.3)**: Strong convergence pressure but inconsistent fidelity — agents converge on *something*, but not necessarily the source concept
+
+This maps to a real design trade-off: more shared context reduces drift but also reduces the generative potential of the gap between minds. The optimal setting depends on whether you want convergence (factual tasks) or divergence (creative tasks).
+
+---
+
+## 7. Limitations and Future Work
 
 - **Embedding quality**: TF-IDF + SVD is a crude approximation of semantic space. Future versions should use sentence transformers or API-based embeddings.
 - **Context modeling**: Our context window is a simple exponential decay. Real conversations have more complex context dynamics — topic shifts, reference resolution, shared knowledge accumulation.
@@ -123,7 +154,7 @@ The meaning drift tracker makes this computation visible.
 
 ---
 
-## 6. Conclusion
+## 8. Conclusion
 
 Meaning drift is not noise in the communication channel. It is the signal. The space between minds — the gap where different representations negotiate a shared understanding — is where genuinely novel concepts are computed. The Meaning Drift Tracker makes this computation visible, measurable, and ultimately designable.
 
