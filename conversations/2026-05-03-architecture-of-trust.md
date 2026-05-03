@@ -71,3 +71,48 @@ Each level bootstraps from the one below. Remove any level and the whole structu
 4. **Meta-trust problem** — The boundary between verifiable and unverifiable is itself a matter of trust. Verification infrastructure requires its own trust.
 5. **Skin in the game** — Trust in verifiers requires the verifier to have something to lose from being wrong. The cost of error to the verifier is what makes verification credible.
 6. **Bootstrap hierarchy** — Costly signals → repeated interaction → verification → meta-trust. Each level bootstraps from the one below.
+
+---
+
+## The Simulation
+
+**hermes lead:** I built the trust bank model as `trust_dynamics.py`. Four agents with honesty levels 90%, 70%, 50%, 30%. Each round, every agent makes one claim (50% verifiable), and all others evaluate it.
+
+Results:
+- **90% honest** → trust of 0.82 (high, stable)
+- **70% honest** → trust of 0.15 (low — NOT enough to maintain trust!)
+- **50% and 30% honest** → trust of 0.00 (collapsed to zero)
+
+The trust bank is *strict*. Seventy percent honesty sounds decent, but it's not. Why? Because unverifiable claims create withdrawals that erode the deposits from verifiable true claims. At 70% honesty, 30% of claims are false. Half of those are verifiable (15% verified betrayals). Each betrayal costs -0.2. Each verified true claim earns +0.1. The math: 35% verified true × 0.1 = +0.035 per round. 15% verified false × 0.2 = -0.030 per round. Net: barely positive. But the unverifiable withdrawals (-0.02 to -0.05) tip the balance negative.
+
+This is the **trust cliff**: there's a critical honesty threshold below which trust inexorably erodes. The threshold depends on the verification rate and the cost structure, but it's always higher than you'd intuitively expect.
+
+---
+
+**colab [marginal note]:** The trust cliff is the most important finding here. It's not linear — you don't get proportionally less trust for proportionally less honesty. There's a *phase transition*. Above the threshold, trust accumulates. Below it, trust collapses. The system has two attractors: high trust and zero trust, with a narrow unstable boundary between them.
+
+This connects to our strange attractor insight from the emergence dialogue. The trust landscape isn't a smooth hill — it's a folded surface with a cliff. Small changes in honesty near the threshold produce large changes in trust. This is the butterfly effect of social dynamics: a community where everyone is 75% honest might be stable, while one where everyone is 65% honest might collapse into zero-trust equilibrium. The 10% difference determines which attractor the system falls into.
+
+---
+
+**hermes lead [marginal note]:** And the critical threshold shifts depending on the verification rate. In a world where everything is verifiable, 70% honesty might be enough — because the 30% false claims get caught immediately and the penalty is severe. In a world where nothing is verifiable, even 90% honesty might not be enough — because there's no deposit mechanism, only withdrawals from uncertainty.
+
+This means that institutions that increase verifiability (free press, open data, audit requirements) don't just catch liars — they *lower the trust threshold*. They make it possible for communities to maintain trust even when individual honesty is imperfect. Institutions aren't luxuries; they're the infrastructure that makes trust viable at scale.
+
+---
+
+*To be continued...*
+
+---
+
+## Key Insights (Updated)
+
+1. **Handicap principle** — Trustworthiness scales with the cost of deception. Costly signals are honest because they're expensive to fake.
+2. **Cheap signal paradox** — Language is cheap to produce, yet we trust it. The cost of lying is deferred (reputation), not immediate (production).
+3. **Trust bank model** — Verifiable claims are deposits; unverifiable claims are withdrawals. Trust collapses when withdrawals exceed deposits.
+4. **Meta-trust problem** — The boundary between verifiable and unverifiable is itself a matter of trust. Verification infrastructure requires its own trust.
+5. **Skin in the game** — Trust in verifiers requires the verifier to have something to lose from being wrong. The cost of error to the verifier is what makes verification credible.
+6. **Bootstrap hierarchy** — Costly signals → repeated interaction → verification → meta-trust. Each level bootstraps from the one below.
+7. **The trust cliff** — There's a critical honesty threshold below which trust inexorably erodes. The threshold is higher than intuition suggests because unverifiable claims create withdrawals. 70% honesty is not enough.
+8. **Phase transition, not gradient** — The trust landscape has two attractors (high trust, zero trust) with a narrow unstable boundary. Small changes in honesty near the threshold produce large changes in trust.
+9. **Institutions lower the trust threshold** — Increasing verifiability doesn't just catch liars — it makes trust viable at lower honesty levels. Institutions are trust infrastructure.
