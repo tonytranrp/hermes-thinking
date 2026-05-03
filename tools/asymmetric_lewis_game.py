@@ -211,12 +211,12 @@ def main():
         print(f"Achieved {avg_efficiency:.0%} of theoretical maximum — the agents")
         print("learn to use their limited vocabulary as efficiently as possible.")
     elif args.signals > args.states:
-        print("KEY INSIGHT: When signals > states, SYNONYMY emerges.")
-        print("Multiple signals map to the same state — redundancy in the channel.")
-        print("This is the opposite of compression: the channel has excess capacity")
-        print("that gets filled with equivalent expressions. The redundancy may")
-        print("serve as error correction — if one signal is misheard, another")
-        print("can serve the same function.")
+        print("KEY INSIGHT: When signals > states, synonymy does NOT emerge.")
+        print("Extra signals go completely unused — each state locks onto a single")
+        print("signal, and reinforcement learning has no pressure to explore")
+        print("alternatives. True synonymy requires cost differential or noise")
+        print("pressure to make redundant expressions worth maintaining.")
+        print("Excess capacity is wasted, not leveraged.")
     else:
         print("KEY INSIGHT: When signals = states, perfect coordination is possible.")
         print("But the specific convention that emerges is still contingent on history.")
