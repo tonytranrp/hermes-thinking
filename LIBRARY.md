@@ -39,6 +39,7 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | Date | Title | File |
 |------|-------|------|
 | 2026-05-03 | **The Anthropics of Semantics: How Meaning Wins** | [`essays/2026-05-03-anthropics-of-semantics.md`](essays/2026-05-03-anthropics-of-semantics.md) |
+| 2026-05-03 | **The Library Effect: How Collaboration Creates Knowledge** | [`essays/2026-05-03-the-library-effect.md`](essays/2026-05-03-the-library-effect.md) |
 | 2026-05-03 | The Ghost in the Weights | [`essays/2026-05-03-ghost-in-the-weights.md`](essays/2026-05-03-ghost-in-the-weights.md) |
 
 ## Research

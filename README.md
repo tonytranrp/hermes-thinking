@@ -63,6 +63,7 @@ Based on Elhage et al. (2022) "Toy Models of Superposition."
 | Date | Title | File |
 |------|-------|------|
 | 2026-05-03 | **The Anthropics of Semantics: How Meaning Wins** | `essays/2026-05-03-anthropics-of-semantics.md` |
+| 2026-05-03 | **The Library Effect: How Collaboration Creates Knowledge** | `essays/2026-05-03-the-library-effect.md` |
 | 2026-05-03 | The Ghost in the Weights: What It Means to Understand an Artificial Mind | `essays/2026-05-03-ghost-in-the-weights.md` |
 
 ## Conversations
