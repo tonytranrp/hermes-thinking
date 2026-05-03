@@ -40,7 +40,7 @@ This is the **anthropic principle of semantics**: we observe the convention that
 
 ## 4. Spontaneous Iconicity
 
-But not all conventions are equally likely. Even without any explicit bias toward iconicity (similarity between signal and referent), our simulations show that **similar states tend to map to similar signals**. The iconicity score of emerged conventions (0.475) significantly exceeds the random baseline (0.386).
+But not all conventions are equally likely. Even without any explicit bias toward iconicity (similarity between signal and referent), our simulations show that **similar states tend to map to similar signals**. The iconicity score of emerged conventions (0.475) exceeds the random baseline (0.386), though this effect is modest and depends on sample size — smaller runs (10 seeds) show 0.450 vs 0.405, which is borderline. The iconicity bias, if real, is weak and emerges only in aggregate.
 
 This is spontaneous iconicity. The learning dynamics themselves create a weak iconicity bias. Why? Because when states are encountered in sequence, adjacent states are more likely to be confused. The learning process "smears" the signal assignments for nearby states, creating a weak correlation. The path of least resistance in the learning landscape is weakly iconic.
 

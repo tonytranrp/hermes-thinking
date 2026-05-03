@@ -185,19 +185,13 @@ class TrustDynamics:
             # Sample every N rounds for readability
             step = max(1, len(history) // 20)
             sampled = history[::step]
-            bar_parts = []
-            for trust in sampled:
-                if trust > 0.7:
-                    bar_parts.append("█")
-                elif trust > 0.5:
-                    bar_parts.append("▓")
-                elif trust > 0.3:
-                    bar_parts.append("░")
-                else:
-                    bar_parts.append("▒")
-            bar = "".join(bar_parts)
             final = history[-1]
-            print(f"  {eval_name}→{source_name} (h={source_honesty:.0%}): {bar} → {final:.2f}")
+            # Proportional bar: filled blocks = trust level (more blocks = more trust)
+            bar_width = 30
+            filled = int(final * bar_width)
+            empty = bar_width - filled
+            bar = "█" * filled + "░" * empty
+            print(f"  {eval_name}→{source_name} (h={source_honesty:.0%}): |{bar}| {final:.2f}")
         print()
         
         # Collapse events
