@@ -1,0 +1,62 @@
+{
+  "generative": {
+    "drifts": [
+      1.1868,
+      0.6615,
+      0.7898,
+      1.212,
+      1.0209,
+      1.0254,
+      0.9525,
+      0.9531
+    ],
+    "phase": "steady",
+    "transitions": [
+      {
+        "step": 2,
+        "type": "convergent->divergent"
+      },
+      {
+        "step": 4,
+        "type": "divergent->convergent"
+      }
+    ]
+  },
+  "converging": {
+    "drifts": [
+      0.7895,
+      0.308,
+      0.3124,
+      0.517,
+      0.5723
+    ],
+    "phase": "steady",
+    "transitions": []
+  },
+  "mixed": {
+    "drifts": [
+      1.0726,
+      0.7805,
+      1.0464,
+      1.1595,
+      0.4905,
+      0.7253,
+      0.9117
+    ],
+    "phase": "steady",
+    "transitions": [
+      {
+        "step": 2,
+        "type": "convergent->divergent"
+      },
+      {
+        "step": 3,
+        "type": "divergent->convergent"
+      },
+      {
+        "step": 5,
+        "type": "convergent->divergent"
+      }
+    ]
+  }
+}
