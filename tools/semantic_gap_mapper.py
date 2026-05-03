@@ -104,7 +104,7 @@ def simulate_conversation(turns: int = 6, vocab_size: int = 40):
     
     for turn in range(turns):
         # Alice encodes the concept (with context influence)
-        # She adjusts her word choice based on Bob's previous responses
+        # Alice adjusts her word choice based on Bob's previous responses
         # to try to steer Bob's interpretation closer to the target
         if context:
             # Alice sees Bob's last interpretation attempt and adjusts
@@ -115,6 +115,14 @@ def simulate_conversation(turns: int = 6, vocab_size: int = 40):
             alice_adjusted = tuple(
                 target_concept[i] + 0.3 * error[i]  # overcorrect toward target
                 for i in range(3)
+            )
+            # Inject noise to escape periodic orbits (see: conversation on
+            # strange attractors). Without noise, the system falls into
+            # deterministic cycles (w12→w19→w38→w12...) that represent
+            # the "stuck conversation" phenomenon. With noise, Alice can
+            # break out of local minima — just as real speakers reformulate.
+            alice_adjusted = tuple(
+                v + alice.rng.gauss(0, 0.15) for v in alice_adjusted
             )
             alice_word = alice.encode(alice_adjusted)
         else:

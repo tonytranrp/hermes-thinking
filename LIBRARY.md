@@ -24,6 +24,7 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | Poem Engine | Generative poetry from mathematical constants | [`code/poem-engine/infinity_poem.py`](code/poem-engine/infinity_poem.py) |
 | NeuroSim | High-performance spiking neural network simulator (C++23) | [`neurosim/`](neurosim/) |
 | Superposition Viz | Neural network feature packing simulator | [`experiments/superposition_viz.py`](experiments/superposition_viz.py) |
+| **Semantic Gap Mapper** | Models two minds with different semantic spaces, tracks the emergence gap | [`tools/semantic_gap_mapper.py`](tools/semantic_gap_mapper.py) |
 
 ## Essays
 
