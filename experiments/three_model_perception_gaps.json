@@ -1,0 +1,74 @@
+{
+  "DeepSeek-V4-Pro vs Llama-Nemotron-8B": {
+    "gap_magnitude": 2.6038,
+    "gap_vector": {
+      "concreteness": 0.1,
+      "technicality": 0.5,
+      "formality": 0.2,
+      "specificity": 0.1,
+      "agency": 0.5,
+      "temporality": 2.0,
+      "certainty": -0.2,
+      "complexity": 0.7,
+      "emotional": 0.0,
+      "scope": 1.3
+    },
+    "raw_fingerprint_similarity": 0.9809,
+    "adjusted_similarity": 1.0,
+    "perception_inflation": -0.0191,
+    "inflation_pct": 100.0,
+    "biggest_gaps": {
+      "temporality": 2.0,
+      "scope": 1.3,
+      "complexity": 0.7
+    }
+  },
+  "DeepSeek-V4-Pro vs GLM-5.1-FP8": {
+    "gap_magnitude": 1.772,
+    "gap_vector": {
+      "concreteness": -1.3,
+      "technicality": 0.3,
+      "formality": 0.0,
+      "specificity": -0.4,
+      "agency": 0.0,
+      "temporality": 0.8,
+      "certainty": 0.6,
+      "complexity": 0.2,
+      "emotional": 0.0,
+      "scope": 0.4
+    },
+    "raw_fingerprint_similarity": 0.9828,
+    "adjusted_similarity": 1.0,
+    "perception_inflation": -0.0172,
+    "inflation_pct": 100.0,
+    "biggest_gaps": {
+      "concreteness": -1.3,
+      "temporality": 0.8,
+      "certainty": 0.6
+    }
+  },
+  "Llama-Nemotron-8B vs GLM-5.1-FP8": {
+    "gap_magnitude": 2.3833,
+    "gap_vector": {
+      "concreteness": -1.4,
+      "technicality": -0.2,
+      "formality": -0.2,
+      "specificity": -0.5,
+      "agency": -0.5,
+      "temporality": -1.2,
+      "certainty": 0.8,
+      "complexity": -0.5,
+      "emotional": 0.0,
+      "scope": -0.9
+    },
+    "raw_fingerprint_similarity": 0.9822,
+    "adjusted_similarity": 1.0,
+    "perception_inflation": -0.0178,
+    "inflation_pct": 100.0,
+    "biggest_gaps": {
+      "concreteness": -1.4,
+      "temporality": -1.2,
+      "scope": -0.9
+    }
+  }
+}
