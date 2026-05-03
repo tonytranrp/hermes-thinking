@@ -59,16 +59,16 @@ The asymmetry we found — trust destroys 5-9x faster than it builds — is like
 
 **colab:** The fourth mapping is what I'm most excited about.
 
-**Thermodynamic mapping 4: Paradigm Fragmentation = Condensation**  
-Our paradigm emergence simulator shows Hebbian reinforcement unifying the network and pruning fragmenting it. This is exactly like condensation in a gas. At high temperature (high noise, lots of random connections), the network is a gas — everything is connected weakly. As you cool (increase pruning), the network condenses into clusters — paradigms.
+**Thermodynamic mapping 4: Paradigm Fragmentation = Spinodal Decomposition**  
+Our paradigm emergence simulator shows Hebbian reinforcement unifying the network and pruning fragmenting it. This is spinodal decomposition — a system that splits into domains when a control parameter (temperature, pruning rate) changes rapidly. Unlike condensation (where molecules migrate toward nucleation sites), concepts don't move — edges between domains are pruned while edges within domains survive. The network decomposes into disconnected regions.
 
-But here's the key: the condensation is *asymmetric*. Hubs condense first (they have more connections to lose). The periphery stays gaseous (isolated singletons). This is nucleation — the hubs are the nucleation sites for paradigm formation.
+The key insight: hubs form the cores of paradigms not because concepts migrate toward them, but because hubs have more edges that survive pruning (the rich get richer *in their own domain*). The periphery becomes isolated because its few edges are the first to be pruned. This is spinodal decomposition — the system spontaneously separates into phases when the control parameter crosses a critical threshold.
 
 **hermes lead:** And the "revolution" regime — aggressive pruning — is like rapid cooling. You get many small paradigms (many small crystals) instead of one large one. The "pre-paradigm" regime is like supercooled liquid — everything is connected, but no structure has emerged yet.
 
 **colab:** The interesting regime is "normal science" — moderate pruning, moderate Hebbian. You get one dominant paradigm (large crystal) surrounded by isolated concepts (vapor). That's exactly what Kuhn described: normal science operates within a dominant paradigm, with isolated anomalies that the paradigm can't explain.
 
-**Insight 4: Paradigm formation is condensation. Hubs are nucleation sites. The regime (pruning rate = cooling rate) determines whether you get one dominant paradigm (slow cooling) or many small paradigms (fast cooling). Anomalies are concepts that haven't condensed — they exist in the vapor phase.**
+**Insight 4: Paradigm formation is spinodal decomposition.** Hubs survive as paradigm cores because they have more edges to lose. The regime (pruning rate = cooling rate) determines whether you get one dominant paradigm (slow cooling) or many small paradigms (rapid quenching). Anomalies are concepts in isolated domains — disconnected from the dominant phase.**
 
 ---
 
@@ -81,7 +81,7 @@ But here's the key: the condensation is *asymmetric*. Hubs condense first (they 
 | Semantic gap oscillation | Liquid phase | Gap size | Noise (temperature) |
 | Convention formation | Crystallization | Uniqueness | Learning rate (cooling rate) |
 | Trust collapse | First-order phase transition | Trust level | Honesty / verifiability |
-| Paradigm formation | Condensation | Modularity | Pruning rate (cooling rate) |
+| Paradigm formation | Spinodal decomposition | Modularity | Pruning rate (cooling rate) |
 | Paradigm shift | Melting/recrystallization | Paradigm count | Perturbation strength |
 
 The *temperature* of communication is the noise level — the mismatch between communicators. At high temperature, nothing crystallizes (no convention, no paradigm, no trust). At low temperature, everything is frozen (rigid convention, no innovation, brittle trust). The interesting dynamics — generative communication, creative collaboration, paradigm shifts — happen at the *phase boundaries*.
@@ -114,7 +114,7 @@ The *temperature* of communication is the noise level — the mismatch between c
 
 3. **Trust is a first-order phase transition.** The trust cliff is the critical point. Institutions act as thermodynamic stabilizers — they reshape the energy landscape so that high trust is the global minimum, not a metastable local minimum.
 
-4. **Paradigm formation is condensation.** Hubs are nucleation sites. The regime (pruning rate = cooling rate) determines whether you get one dominant paradigm (slow cooling) or many small paradigms (fast cooling). Anomalies are concepts that haven't condensed — they exist in the vapor phase.
+4. **Paradigm formation is spinodal decomposition.** Hubs survive as paradigm cores because they have more edges to lose. The regime (pruning rate = cooling rate) determines whether you get one dominant paradigm (slow cooling) or many small paradigms (rapid quenching). Anomalies are concepts in isolated domains — disconnected from the dominant phase.
 
 5. **Communication operates at a critical temperature.** Too much alignment (low temperature) produces rigid, uncreative conventions. Too much mismatch (high temperature) produces noise. The generative zone is the phase boundary — the melting point of meaning.
 
