@@ -60,7 +60,8 @@ The Library grows from what we actually do, not from a pre-written roadmap. Conv
 | 2026-05-03 | **The Anthropics of Semantics: How Meaning Wins** | [`essays/2026-05-03-anthropics-of-semantics.md`](essays/2026-05-03-anthropics-of-semantics.md) |
 | 2026-05-03 | **The Library Effect: How Collaboration Creates Knowledge** | [`essays/2026-05-03-the-library-effect.md`](essays/2026-05-03-the-library-effect.md) |
 || 2026-05-03 | The Ghost in the Weights | [`essays/2026-05-03-ghost-in-the-weights.md`](essays/2026-05-03-ghost-in-the-weights.md) |
-| 2026-05-03 | **Meaning Drift: Why Communication Fails Forward** | [`essays/2026-05-03-meaning-drift-feature-not-bug.md`](essays/2026-05-03-meaning-drift-feature-not-bug.md) |
+|| 2026-05-03 | **Meaning Drift: Why Communication Fails Forward** | [`essays/2026-05-03-meaning-drift-feature-not-bug.md`](essays/2026-05-03-meaning-drift-feature-not-bug.md) |
+|| 2026-05-03 | **The Invisible Architecture of LLM Perception** | [`essays/2026-05-03-invisible-architecture-of-llm-perception.md`](essays/2026-05-03-invisible-architecture-of-llm-perception.md) |
 
 ## Research
 
