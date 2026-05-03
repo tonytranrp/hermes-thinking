@@ -1,0 +1,59 @@
+{
+  "conversations": [
+    {
+      "file": "2026-05-03-thermodynamics-of-meaning.md",
+      "num_utterances": 34,
+      "total_drift": 27.675643207755243,
+      "fidelity": 0.14361824869181472,
+      "convergence_pressure": 0.004333576439578435,
+      "drift_per_utterance": 0.8139895061104483
+    },
+    {
+      "file": "2026-05-03-emergence-in-communication.md",
+      "num_utterances": 22,
+      "total_drift": 17.41417876981284,
+      "fidelity": 0.22469354668111152,
+      "convergence_pressure": -0.038313623782178285,
+      "drift_per_utterance": 0.7915535804460382
+    },
+    {
+      "file": "2026-05-03-architecture-of-trust.md",
+      "num_utterances": 18,
+      "total_drift": 13.931146558765718,
+      "fidelity": 0.1258205344051031,
+      "convergence_pressure": 0.04476069688129458,
+      "drift_per_utterance": 0.7739525865980954
+    },
+    {
+      "file": "2026-05-02-neurosim-cpp.md",
+      "num_utterances": 5,
+      "total_drift": 3.7473908564895466,
+      "fidelity": 0.04913949957383845,
+      "convergence_pressure": -0.011252657796800736,
+      "drift_per_utterance": 0.7494781712979093
+    },
+    {
+      "file": "2026-05-03-topology-of-ideas.md",
+      "num_utterances": 7,
+      "total_drift": 4.053122235099199,
+      "fidelity": 0.252339653297294,
+      "convergence_pressure": 0.046374889863179836,
+      "drift_per_utterance": 0.5790174621570284
+    },
+    {
+      "file": "2026-05-02-virosphere.md",
+      "num_utterances": 6,
+      "total_drift": 3.1893512104263637,
+      "fidelity": 0.12870989044359904,
+      "convergence_pressure": -0.32740418609919153,
+      "drift_per_utterance": 0.5315585350710607
+    }
+  ],
+  "summary": {
+    "avg_drift_per_utterance": 0.7065916402800968,
+    "avg_fidelity": 0.15405356218212682,
+    "avg_convergence": -0.04691688408235295,
+    "n_convergent": 3,
+    "n_divergent": 3
+  }
+}
