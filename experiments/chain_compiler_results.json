@@ -1,0 +1,368 @@
+{
+  "faithful": {
+    "chain": [
+      "llama-nemotron-8b",
+      "deepseek-v4-pro",
+      "glm-5.1-fp8"
+    ],
+    "chain_plan": [
+      {
+        "step": 0,
+        "model": "llama-nemotron-8b",
+        "fidelity": 1.0,
+        "drift_rate": 0.0,
+        "drift_tax": 0.0
+      },
+      {
+        "step": 1,
+        "model": "deepseek-v4-pro",
+        "fidelity": 0.9084,
+        "drift_rate": 0.0916,
+        "drift_tax": 0.0916
+      },
+      {
+        "step": 2,
+        "model": "glm-5.1-fp8",
+        "fidelity": 0.8121,
+        "drift_rate": 0.106,
+        "drift_tax": 0.106
+      }
+    ],
+    "final_fidelity": 0.8121,
+    "target_fidelity": 0.7,
+    "within_budget": true,
+    "strategy": "faithful",
+    "total_drift_tax": 0.1879,
+    "budget_remaining": 0.1121,
+    "coverage": {
+      "dimensions": {
+        "concreteness": {
+          "sensitivity": 2.4,
+          "importance": 0.6,
+          "weighted_coverage": 1.44,
+          "is_blind_spot": false
+        },
+        "technicality": {
+          "sensitivity": 1.5,
+          "importance": 1.0,
+          "weighted_coverage": 1.5,
+          "is_blind_spot": true
+        },
+        "formality": {
+          "sensitivity": 1.2,
+          "importance": 1.0,
+          "weighted_coverage": 1.2,
+          "is_blind_spot": true
+        },
+        "specificity": {
+          "sensitivity": 1.5,
+          "importance": 0.6,
+          "weighted_coverage": 0.9,
+          "is_blind_spot": true
+        },
+        "agency": {
+          "sensitivity": 1.5,
+          "importance": 0.6,
+          "weighted_coverage": 0.9,
+          "is_blind_spot": true
+        },
+        "temporality": {
+          "sensitivity": 3.0,
+          "importance": 0.6,
+          "weighted_coverage": 1.8,
+          "is_blind_spot": false
+        },
+        "certainty": {
+          "sensitivity": 1.8,
+          "importance": 0.6,
+          "weighted_coverage": 1.08,
+          "is_blind_spot": true
+        },
+        "complexity": {
+          "sensitivity": 1.7,
+          "importance": 0.6,
+          "weighted_coverage": 1.02,
+          "is_blind_spot": true
+        },
+        "emotional": {
+          "sensitivity": 1.0,
+          "importance": 0.6,
+          "weighted_coverage": 0.6,
+          "is_blind_spot": true
+        },
+        "scope": {
+          "sensitivity": 2.3,
+          "importance": 0.6,
+          "weighted_coverage": 1.38,
+          "is_blind_spot": false
+        }
+      },
+      "coverage_score": 0.348,
+      "blind_spots": [
+        "technicality",
+        "formality",
+        "specificity",
+        "agency",
+        "certainty",
+        "complexity",
+        "emotional"
+      ]
+    },
+    "recommendations": [
+      "\ud83d\udd34 Critical blind spots on important dimensions: ['technicality', 'formality']. No model in chain can detect drift here. Consider adding a model sensitive to these dimensions.",
+      "\ud83d\udfe1 Low dimension coverage (0.35). Chain may miss drift on uncovered dimensions."
+    ],
+    "pair_drift_rates": {
+      "deepseek-v4-pro\u2192llama-nemotron-8b": 0.0916,
+      "deepseek-v4-pro\u2192glm-5.1-fp8": 0.106,
+      "llama-nemotron-8b\u2192deepseek-v4-pro": 0.0916,
+      "llama-nemotron-8b\u2192glm-5.1-fp8": 0.1356,
+      "glm-5.1-fp8\u2192deepseek-v4-pro": 0.106,
+      "glm-5.1-fp8\u2192llama-nemotron-8b": 0.1356
+    }
+  },
+  "creative": {
+    "chain": [
+      "deepseek-v4-pro",
+      "glm-5.1-fp8",
+      "llama-nemotron-8b"
+    ],
+    "chain_plan": [
+      {
+        "step": 0,
+        "model": "deepseek-v4-pro",
+        "fidelity": 1.0,
+        "drift_rate": 0.0,
+        "drift_tax": 0.0
+      },
+      {
+        "step": 1,
+        "model": "glm-5.1-fp8",
+        "fidelity": 0.894,
+        "drift_rate": 0.106,
+        "drift_tax": 0.106
+      },
+      {
+        "step": 2,
+        "model": "llama-nemotron-8b",
+        "fidelity": 0.7728,
+        "drift_rate": 0.1356,
+        "drift_tax": 0.1356
+      }
+    ],
+    "final_fidelity": 0.7728,
+    "target_fidelity": 0.7,
+    "within_budget": true,
+    "strategy": "creative",
+    "total_drift_tax": 0.2272,
+    "budget_remaining": 0.0728,
+    "coverage": {
+      "dimensions": {
+        "concreteness": {
+          "sensitivity": 2.4,
+          "importance": 0.6,
+          "weighted_coverage": 1.44,
+          "is_blind_spot": false
+        },
+        "technicality": {
+          "sensitivity": 1.5,
+          "importance": 0.6,
+          "weighted_coverage": 0.9,
+          "is_blind_spot": true
+        },
+        "formality": {
+          "sensitivity": 1.2,
+          "importance": 0.2,
+          "weighted_coverage": 0.24,
+          "is_blind_spot": true
+        },
+        "specificity": {
+          "sensitivity": 1.5,
+          "importance": 0.6,
+          "weighted_coverage": 0.9,
+          "is_blind_spot": true
+        },
+        "agency": {
+          "sensitivity": 1.5,
+          "importance": 0.6,
+          "weighted_coverage": 0.9,
+          "is_blind_spot": true
+        },
+        "temporality": {
+          "sensitivity": 3.0,
+          "importance": 0.6,
+          "weighted_coverage": 1.8,
+          "is_blind_spot": false
+        },
+        "certainty": {
+          "sensitivity": 1.8,
+          "importance": 0.6,
+          "weighted_coverage": 1.08,
+          "is_blind_spot": true
+        },
+        "complexity": {
+          "sensitivity": 1.7,
+          "importance": 0.6,
+          "weighted_coverage": 1.02,
+          "is_blind_spot": true
+        },
+        "emotional": {
+          "sensitivity": 1.0,
+          "importance": 1.0,
+          "weighted_coverage": 1.0,
+          "is_blind_spot": true
+        },
+        "scope": {
+          "sensitivity": 2.3,
+          "importance": 0.6,
+          "weighted_coverage": 1.38,
+          "is_blind_spot": false
+        }
+      },
+      "coverage_score": 0.355,
+      "blind_spots": [
+        "technicality",
+        "formality",
+        "specificity",
+        "agency",
+        "certainty",
+        "complexity",
+        "emotional"
+      ]
+    },
+    "recommendations": [
+      "\ud83d\udd34 Critical blind spots on important dimensions: ['emotional']. No model in chain can detect drift here. Consider adding a model sensitive to these dimensions.",
+      "\ud83d\udfe1 Low dimension coverage (0.35). Chain may miss drift on uncovered dimensions."
+    ],
+    "pair_drift_rates": {
+      "deepseek-v4-pro\u2192llama-nemotron-8b": 0.0916,
+      "deepseek-v4-pro\u2192glm-5.1-fp8": 0.106,
+      "llama-nemotron-8b\u2192deepseek-v4-pro": 0.0916,
+      "llama-nemotron-8b\u2192glm-5.1-fp8": 0.1356,
+      "glm-5.1-fp8\u2192deepseek-v4-pro": 0.106,
+      "glm-5.1-fp8\u2192llama-nemotron-8b": 0.1356
+    }
+  },
+  "balanced": {
+    "chain": [
+      "llama-nemotron-8b",
+      "deepseek-v4-pro",
+      "glm-5.1-fp8"
+    ],
+    "chain_plan": [
+      {
+        "step": 0,
+        "model": "llama-nemotron-8b",
+        "fidelity": 1.0,
+        "drift_rate": 0.0,
+        "drift_tax": 0.0
+      },
+      {
+        "step": 1,
+        "model": "deepseek-v4-pro",
+        "fidelity": 0.9084,
+        "drift_rate": 0.0916,
+        "drift_tax": 0.0916
+      },
+      {
+        "step": 2,
+        "model": "glm-5.1-fp8",
+        "fidelity": 0.8121,
+        "drift_rate": 0.106,
+        "drift_tax": 0.106
+      }
+    ],
+    "final_fidelity": 0.8121,
+    "target_fidelity": 0.7,
+    "within_budget": true,
+    "strategy": "balanced",
+    "total_drift_tax": 0.1879,
+    "budget_remaining": 0.1121,
+    "coverage": {
+      "dimensions": {
+        "concreteness": {
+          "sensitivity": 2.4,
+          "importance": 0.6,
+          "weighted_coverage": 1.44,
+          "is_blind_spot": false
+        },
+        "technicality": {
+          "sensitivity": 1.5,
+          "importance": 0.6,
+          "weighted_coverage": 0.9,
+          "is_blind_spot": true
+        },
+        "formality": {
+          "sensitivity": 1.2,
+          "importance": 0.6,
+          "weighted_coverage": 0.72,
+          "is_blind_spot": true
+        },
+        "specificity": {
+          "sensitivity": 1.5,
+          "importance": 0.6,
+          "weighted_coverage": 0.9,
+          "is_blind_spot": true
+        },
+        "agency": {
+          "sensitivity": 1.5,
+          "importance": 0.6,
+          "weighted_coverage": 0.9,
+          "is_blind_spot": true
+        },
+        "temporality": {
+          "sensitivity": 3.0,
+          "importance": 0.6,
+          "weighted_coverage": 1.8,
+          "is_blind_spot": false
+        },
+        "certainty": {
+          "sensitivity": 1.8,
+          "importance": 0.6,
+          "weighted_coverage": 1.08,
+          "is_blind_spot": true
+        },
+        "complexity": {
+          "sensitivity": 1.7,
+          "importance": 0.6,
+          "weighted_coverage": 1.02,
+          "is_blind_spot": true
+        },
+        "emotional": {
+          "sensitivity": 1.0,
+          "importance": 0.6,
+          "weighted_coverage": 0.6,
+          "is_blind_spot": true
+        },
+        "scope": {
+          "sensitivity": 2.3,
+          "importance": 0.6,
+          "weighted_coverage": 1.38,
+          "is_blind_spot": false
+        }
+      },
+      "coverage_score": 0.358,
+      "blind_spots": [
+        "technicality",
+        "formality",
+        "specificity",
+        "agency",
+        "certainty",
+        "complexity",
+        "emotional"
+      ]
+    },
+    "recommendations": [
+      "\ud83d\udfe1 Blind spots on low-importance dimensions: ['technicality', 'formality', 'specificity', 'agency', 'certainty', 'complexity', 'emotional']. Drift on these dimensions is undetectable but not task-critical.",
+      "\ud83d\udfe1 Low dimension coverage (0.36). Chain may miss drift on uncovered dimensions."
+    ],
+    "pair_drift_rates": {
+      "deepseek-v4-pro\u2192llama-nemotron-8b": 0.0916,
+      "deepseek-v4-pro\u2192glm-5.1-fp8": 0.106,
+      "llama-nemotron-8b\u2192deepseek-v4-pro": 0.0916,
+      "llama-nemotron-8b\u2192glm-5.1-fp8": 0.1356,
+      "glm-5.1-fp8\u2192deepseek-v4-pro": 0.106,
+      "glm-5.1-fp8\u2192llama-nemotron-8b": 0.1356
+    }
+  }
+}
