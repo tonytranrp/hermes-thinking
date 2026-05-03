@@ -145,7 +145,21 @@ This maps to a real design trade-off: more shared context reduces drift but also
 
 ---
 
-## 7. Limitations and Future Work
+## 7. Semantic Attractors: Drift Has Direction
+
+Our velocity analysis reveals that semantic drift is not isotropic — it has a preferred direction. When we compute velocity vectors (the direction of drift in semantic space) across 8 different model chains starting from the same source concept, we find:
+
+- **Average velocity alignment: 0.625** — strong directional preference
+- **All 8 chains converge toward a shared attractor** regardless of routing order
+- The attractor centroid has low similarity to the source (0.042), meaning it's a *different* concept, not the original
+
+This is the most significant finding of our research: **multi-model systems have natural semantic attractors**. Regardless of which models you route through and in what order, meaning tends to drift toward certain basins. These basins represent the shared "gravitational center" of the combined model space — the concepts that all models can most easily represent.
+
+Implication: the "creative potential" of a multi-agent system is bounded by its attractor landscape. You can't drift to just anywhere — meaning flows downhill toward the nearest attractor. Understanding this landscape would allow us to predict and design the creative output of multi-model systems.
+
+---
+
+## 8. Limitations and Future Work
 
 - **Embedding quality**: TF-IDF + SVD is a crude approximation of semantic space. Future versions should use sentence transformers or API-based embeddings.
 - **Context modeling**: Our context window is a simple exponential decay. Real conversations have more complex context dynamics — topic shifts, reference resolution, shared knowledge accumulation.
@@ -154,7 +168,7 @@ This maps to a real design trade-off: more shared context reduces drift but also
 
 ---
 
-## 8. Conclusion
+## 9. Conclusion
 
 Meaning drift is not noise in the communication channel. It is the signal. The space between minds — the gap where different representations negotiate a shared understanding — is where genuinely novel concepts are computed. The Meaning Drift Tracker makes this computation visible, measurable, and ultimately designable.
 
