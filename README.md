@@ -73,6 +73,19 @@ python3 tools/drift_text_mode.py
 
 See [`essays/2026-05-03-meaning-drift-feature-not-bug.md`](essays/2026-05-03-meaning-drift-feature-not-bug.md).
 
+**Companion tools:**
+- `tools/drift_text_mode.py` — Text-based drift tracking (TF-IDF + SVD)
+- `tools/drift_atlas.py` — Corpus-wide drift scanning
+- `tools/drift_aware_router.py` — Optimal model sequence selection (faithful/creative/balanced)
+- `tools/convergence_detector.py` — Phase transition detection in conversations
+
+**Experiments:**
+- Multi-model chains (divergence index: 0.877)
+- Routing order (fidelity spread 0.20 across permutations)
+- Context sensitivity (sweet spot: wt 0.10-0.15, window 2-3)
+- Model drift signatures (per-model drift profiles)
+- Drift atlas (corpus-wide: 3 convergent / 3 divergent conversations)
+
 ### 🧬 Paradigm Emergence Simulator — How Knowledge Paradigms Form and Collapse
 
 Models the dynamics of paradigm formation through three forces:
